@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://img1.meaoo.cn/static/favicon/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img1.meaoo.cn/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img1.meaoo.cn/static/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://img1.meaoo.cn/static/favicon/favicon.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="GN_MRoDKMLLA4Qy8TqMBiyZGdFuTMInW0j0VJqg-r_s">
+  <meta name="msvalidate.01" content="B7AA699B7651FBC7F9E1E6DCE43FBD19">
+  <meta name="yandex-verification" content="3da251841e2becb2">
+  <meta name="baidu-site-verification" content="y9dBoV0s1KdIhQlt">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.meaoo.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="智能设备的普及也诞生了很多时间管理工具，如番茄类、Todo类、Calendar、GTD，当我们尝试过十几款这类工具之后，会发现自己可能已经陷入一个怪圈无法自拔。想象中可以借助工具提高的工作效率可能还不如使用工具之前。问题出在了哪里？人的问题？工具的问题？下面是我个人的体会，只代表个人对于这件事情的理解和见解。  自黑自19年初开始，我就开始寻找各种各样的时间管理工具，当初的想法很单纯，只是想记录">
+<meta name="keywords" content="Tool,Life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对于管理工具的执着是否值得">
+<meta property="og:url" content="https://www.meaoo.cn/2020/04/24/20200424001.html">
+<meta property="og:site_name" content="喵先生">
+<meta property="og:description" content="智能设备的普及也诞生了很多时间管理工具，如番茄类、Todo类、Calendar、GTD，当我们尝试过十几款这类工具之后，会发现自己可能已经陷入一个怪圈无法自拔。想象中可以借助工具提高的工作效率可能还不如使用工具之前。问题出在了哪里？人的问题？工具的问题？下面是我个人的体会，只代表个人对于这件事情的理解和见解。  自黑自19年初开始，我就开始寻找各种各样的时间管理工具，当初的想法很单纯，只是想记录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-24T12:26:05.226Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对于管理工具的执着是否值得">
+<meta name="twitter:description" content="智能设备的普及也诞生了很多时间管理工具，如番茄类、Todo类、Calendar、GTD，当我们尝试过十几款这类工具之后，会发现自己可能已经陷入一个怪圈无法自拔。想象中可以借助工具提高的工作效率可能还不如使用工具之前。问题出在了哪里？人的问题？工具的问题？下面是我个人的体会，只代表个人对于这件事情的理解和见解。  自黑自19年初开始，我就开始寻找各种各样的时间管理工具，当初的想法很单纯，只是想记录">
+
+<link rel="canonical" href="https://www.meaoo.cn/2020/04/24/20200424001.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>对于管理工具的执着是否值得 | 喵先生</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?017d15f439443dc58587606a42f85193";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">喵先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不会写代码的程序猿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/04/24/20200424001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对于管理工具的执着是否值得
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-24T00:00:00+08:00">2020-04-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>智能设备的普及也诞生了很多时间管理工具，如<code>番茄类</code>、<code>Todo类</code>、<code>Calendar</code>、<code>GTD</code>，当我们尝试过十几款这类工具之后，会发现自己可能已经陷入一个怪圈无法自拔。想象中可以借助工具提高的工作效率可能还不如使用工具之前。问题出在了哪里？人的问题？工具的问题？下面是我个人的体会，只代表个人对于这件事情的理解和见解。</p>
+</blockquote>
+<h1 id="自黑"><a href="#自黑" class="headerlink" title="自黑"></a>自黑</h1><p>自19年初开始，我就开始寻找各种各样的时间管理工具，当初的想法很单纯，只是想记录一下当天以及以后要做的事情并能够提醒自己即可。<br>期间尝试过很多知名或非知名，专业或非专业的工具。但是效果甚微，因为我的关注点在工具而不是事情。<br>有那么一段时间，一个事情会在至少3个工具上记录，但是这些都在几天之后遗忘甚至把工具删除。删除这些工具的原因也比较正常，就是不好用，使用成本过高或者没有达到自己想要的效果。</p>
+<h1 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h1><p>从20年2月份开始，发现简简单单才是真。我想起了当初使用工具的原因及初衷，然后我选择了现在的我所谓的工具套件</p>
+<ul>
+<li>事件提醒：提醒事项（Mac自带）</li>
+<li>文字记录：备忘录（Mac自带）</li>
+<li>日历：Calendar 366 II（方便查看提醒事项和日期事件）</li>
+<li>效率追踪：RescueTime（监控电脑使用时间及时间分类，会有日报及周报发到邮箱里）</li>
+</ul>
+<h2 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h2><p>为什么使用这些工具，因为简单、方便。</p>
+<ul>
+<li><code>提醒事项</code>和<code>备忘录</code>可以与我手机实时同步且是原生软件稳定性更好。</li>
+<li><code>Calendar 366</code>其实是在菜单栏中把<code>提醒事项</code>和<code>日历</code>内容放到一起且可操作。</li>
+<li><code>RescueTime</code>是分析自己每天都在做什么。<br>就是这些，因为我的诉求也很简单。</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="表象问题"><a href="#表象问题" class="headerlink" title="表象问题"></a>表象问题</h1><p>工具，可能只是效率问题一个极其浅层次的外延表象。</p>
+<p>我们大脑里总有一个观念，认为只要是道理都是对的，只要照着说明书给出的具体步骤，那么我也能复制别人的成功。但却往往忽视自己与方法的匹配度，忽视自己面临的真实场景，忽视自己的个性与使用习惯。很简单，即使这辆汽车速度再快，对于航海的人，它是没有意义的。</p>
+<p>所以第一个问题，我要问自己，我的生活是否已经繁忙到需要用日程管理？是否已经复杂到需要使用工具去管理时间及任务？还是说，我是在用工具来套生活，将生活中的小事都不合时宜的丢了进去，只是因为高效人士都是这么做的。</p>
+<h1 id="夭折的效率"><a href="#夭折的效率" class="headerlink" title="夭折的效率"></a>夭折的效率</h1><p>为什么你的待办清单总是有很多任务做不完？为什么他的清单总是空空如也？其实总结一个字<code>贪婪</code>。<br>有人会好奇，为什么两者都是贪婪？</p>
+<p>首先要清楚清单是做什么用的？是提醒我们未来可预见时间内要做的任务和当天要做的任务。当然我们可以对这些任务进行分类，进行优先级区分这些都可以，也没问题。<br>想一想周末你的清单里有什么。是否还有任务在那里挂着等待这你去点击完成。计划每个任务不是给别人看的，而是自己要实实在在的做了这些任务且很好的完成。<br>将清单塞的满满，不是为了让你在别人面前夸夸自谈，不是为了让你赚取别人的赞扬。鱼和熊掌不可兼得，量力而行。</p>
+<p>空空如也是因为你的清单没有当天计划，更没有未来计划。</p>
+<p>你的效率已经被贪婪扼杀在摇篮中。</p>
+<h1 id="钥匙"><a href="#钥匙" class="headerlink" title="钥匙"></a>钥匙</h1><p>工作中如何提升效率？</p>
+<ul>
+<li>确认目标：将自己的目标与团队共享</li>
+<li>定义优先级：拆解任务，并明确任务的轻重缓急</li>
+<li>梳理痛点：对自己的任务归类整理，知道自己面临的痛点</li>
+<li>借助工具：依据痛点，有针对性的选择工具</li>
+</ul>
+<h2 id="确认目标-amp-定义优先级"><a href="#确认目标-amp-定义优先级" class="headerlink" title="确认目标 &amp; 定义优先级"></a>确认目标 &amp; 定义优先级</h2><p>目标与优先级这两个步骤，一是将自己的任务比对上级任务与业务方向，如果发现偏差及时沟通及时调整；其次是根据价值程度划定优先级。目标拆解后的事儿肯定很多，但不是什么简单做什么，而是根据价值决定首先应该做什么。</p>
+<p>当然很多时候，我们还是会迫不得已做些无关目标的事。但整体上，目标与优先级可以使我们变得更觉察，不会是只要看到事都想去解决它。</p>
+<p>从源头上控制事项产生，这是任何效率工具都无法达成的效果。</p>
+<h2 id="梳理场景痛点"><a href="#梳理场景痛点" class="headerlink" title="梳理场景痛点"></a>梳理场景痛点</h2><p>完成上面的步骤，基本上我已经知道自己需要完成的任务。接下来我会把任务按性质进行归类，目的是使自己明白，我在工作中主要面临哪些场景，以及是否存在问题或痛点 。</p>
+<ul>
+<li>沟通场景的痛点：文字语音表达不清楚；一件事反复说</li>
+<li>输出场景的痛点：注意力频繁被打断；工作界面不易聚焦</li>
+<li>查询场景的痛点：信息搜索太慢；阅读信息很浮躁</li>
+</ul>
+<h2 id="借力工具"><a href="#借力工具" class="headerlink" title="借力工具"></a>借力工具</h2><p>挑选工具前，先想想哪些事情可以因为工具提升效率，哪些事情其实与工具无关。千万不要盲目跟风。</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>喵先生
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.meaoo.cn/2020/04/24/20200424001.html" title="对于管理工具的执着是否值得">https://www.meaoo.cn/2020/04/24/20200424001.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Tool/" rel="tag"><i class="fa fa-tag"></i> Tool</a>
+              <a href="/tags/Life/" rel="tag"><i class="fa fa-tag"></i> Life</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/25/20191225001.html" rel="prev" title="Html页面支持暗黑模式">
+      <i class="fa fa-chevron-left"></i> Html页面支持暗黑模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/30/20200430001.html" rel="next" title="Agile--敏捷">
+      Agile--敏捷 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自黑"><span class="nav-number">1.</span> <span class="nav-text">自黑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#现状"><span class="nav-number">2.</span> <span class="nav-text">现状</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#理由"><span class="nav-number">2.1.</span> <span class="nav-text">理由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表象问题"><span class="nav-number">3.</span> <span class="nav-text">表象问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#夭折的效率"><span class="nav-number">4.</span> <span class="nav-text">夭折的效率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#钥匙"><span class="nav-number">5.</span> <span class="nav-text">钥匙</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#确认目标-amp-定义优先级"><span class="nav-number">5.1.</span> <span class="nav-text">确认目标 &amp; 定义优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梳理场景痛点"><span class="nav-number">5.2.</span> <span class="nav-text">梳理场景痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借力工具"><span class="nav-number">5.3.</span> <span class="nav-text">借力工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束"><span class="nav-number">6.</span> <span class="nav-text">结束</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="喵先生"
+      src="https://img1.meaoo.cn/static/avatar.png">
+  <p class="site-author-name" itemprop="name">喵先生</p>
+  <div class="site-description" itemprop="description">喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmJsb2dAbWVhb28uY24=" title="E-Mail → mailto:blog@meaoo.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL215b25nZmVuZw==" title="Linkedin → https://www.linkedin.com/in/myongfeng"><i class="fa fa-fw fa-linkedin"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9tZWFvb0NO" title="Twitter → https://twitter.com/meaooCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL21lYW9vQ04=" title="Facebook → https://www.facebook.com/meaooCN"><i class="fa fa-fw fa-facebook"></i>Facebook</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly85OTYuaWN1" title="https://996.icu">996</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.meaoo.cn" title="https://www.meaoo.cn">喵先生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9pbG92ZS53b3Jrcw==" title="https://ilove.works">ILoveWork</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbi8=">京ICP备13004645号-7 </span>
+      <img src="https://img1.meaoo.cn/static/icon-police.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTExMDEwNTAyMDM1MzQ5">京公网安备11010502035349号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喵先生</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://img1.meaoo.cn/static/favicon/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img1.meaoo.cn/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img1.meaoo.cn/static/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://img1.meaoo.cn/static/favicon/favicon.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="GN_MRoDKMLLA4Qy8TqMBiyZGdFuTMInW0j0VJqg-r_s">
+  <meta name="msvalidate.01" content="B7AA699B7651FBC7F9E1E6DCE43FBD19">
+  <meta name="yandex-verification" content="3da251841e2becb2">
+  <meta name="baidu-site-verification" content="y9dBoV0s1KdIhQlt">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.meaoo.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="喵先生">
+<meta property="og:url" content="https://www.meaoo.cn/index.html">
+<meta property="og:site_name" content="喵先生">
+<meta property="og:description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="喵先生">
+<meta name="twitter:description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+
+<link rel="canonical" href="https://www.meaoo.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>喵先生 - 一个不会写代码的程序猿</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?017d15f439443dc58587606a42f85193";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">喵先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不会写代码的程序猿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/12/22/20201222001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/22/20201222001.html" class="post-title-link" itemprop="url">IOS和Mac如何配置DoH</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-22T00:00:00+08:00">2020-12-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="什么是DoH"><a href="#什么是DoH" class="headerlink" title="什么是DoH"></a>什么是DoH</h1><p><code>DoH</code>是<code>DNS Over HTTPS</code>的缩写.我们在访问一个网站时,会根据本机设置的DNS去查询这个域名的ip,而这个过程传统使用UDP传输协议,并且在请求的过程中并没做任何的加密操作</p>
+<h2 id="这样会导致什么样的影响呢"><a href="#这样会导致什么样的影响呢" class="headerlink" title="这样会导致什么样的影响呢?"></a>这样会导致什么样的影响呢?</h2><p>DNS污染、劫持。也就是我们访问的并不是我们想要的真实网站。尤其是在当今广告此猖狂的年代, 各个运营商经常会返回一些我们意想不到的广告或干扰,甚至因为一些这样的广告而被受骗。其次就是udp传输明文,这样就会被记录下自己的访问记录,自己的隐私数据就会被他人拿来利用分析。</p>
+<h1 id="DNS劫持与HTTP劫持"><a href="#DNS劫持与HTTP劫持" class="headerlink" title="DNS劫持与HTTP劫持"></a>DNS劫持与HTTP劫持</h1><h3 id="DNS劫持：当DNS不那么老实"><a href="#DNS劫持：当DNS不那么老实" class="headerlink" title="DNS劫持：当DNS不那么老实"></a>DNS劫持：当DNS不那么老实</h3><p>打个比方：</p>
+<p>从前有个叫小刚的，他也开了家杂货店；<br>小刚发现小明的杂货店有很多客户，分外眼红，便拿钱贿赂了村口大爷(DNS服务商)，于是，当顾客让村口大爷将其带到“小明杂货店”是，村口大爷不管三七二十一将其带到“小刚杂货店”。在网络中，则是DNS服务器故意给出错误的IP地址。</p>
+<p>这显然是无计可施的，一般来说，遇到这种人品烂的掉渣的服务商，最好的办法就是换一家，好在这年头网络条件不错，大多数DNS都不搞这种事。</p>
+<h3 id="HTTP劫持：当ISP不那么老实"><a href="#HTTP劫持：当ISP不那么老实" class="headerlink" title="HTTP劫持：当ISP不那么老实"></a>HTTP劫持：当ISP不那么老实</h3><p>假设你向村口大爷（DNS服务器）打了个电话，“我要去小明杂货店。”结果你的电话服务商窃听了这句话，得知了你的行程；甚至将其修改为“我要去小刚杂货店。”，然后你就不明不白的被带到了另一个地方。</p>
+<p>在这种情况下，你的DNS服务商是老实可靠的，但你的ISP（网络服务提供商）则不那么可靠。当然，一般的ISP并没有那么猖狂，他们最多不过是往你身上塞几张奇怪的广告（想必大家都有这样的经历。）你有时候会不会发现你看到的广告就是最近曾经关注过的事物？</p>
+<p>当然随着智能设备普及，对于窃听这件事情成本越来越低，也越来越高级。比如听筒窃听。网上有那么一个视频，如果你想要一个PS5，那就对着你老爸的手机一直说PS5…用不了几个小时，你老爸看淘宝的时候，都是PS5相关商品推荐，甚至是网页也都是相关广告。（当然DoH并不能解决声音窃听这件事情。）</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/22/20201222001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/05/13/20200513001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/13/20200513001.html" class="post-title-link" itemprop="url">如何克服焦虑</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-13T00:00:00+08:00">2020-05-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/how/" itemprop="url" rel="index"><span itemprop="name">how</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>焦虑是每个人偶尔都会有的一种正常而且健康的情绪。但是焦虑可能会演变成一种心理障碍，降低你应对这种情感的能力。当你试图克服这种心理障碍时，不要尝试消除焦虑，而要建立自己的应对体系。拥有解决焦虑根源的能力才是克服焦虑的关键。焦虑可能会引发更加严重的心理健康问题，例如长期抑郁，所以不要让焦虑左右你。</p>
+</blockquote>
+<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><h2 id="检查焦虑情绪"><a href="#检查焦虑情绪" class="headerlink" title="检查焦虑情绪"></a>检查焦虑情绪</h2><h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>意识到并承认自己的焦虑。不要因为焦虑而责怪自己，或者说丧气话，比如“我永远也摆脱不了它”，或者“我无能为力”等等。要相信自己有能力克服它，并且你最终也会战胜它。</p>
+<h3 id="II"><a href="#II" class="headerlink" title="II"></a>II</h3><p>弄清焦虑的根源。不管你是惊恐发作，还是突然开始忧虑和恐惧，一定要弄清楚，到底是什么导致了你的焦虑。周围环境中的某个东西是你焦虑的主要来源吗？是某场意外引起的吗？是某个即将进行的活动或者会议造成了你的焦虑吗？只有弄清楚恐惧的根源，你才能更轻松地应对它。</p>
+<h3 id="专家提示"><a href="#专家提示" class="headerlink" title="专家提示"></a>专家提示</h3><div class="note success">
+            <p>要明白，焦虑有时也是有益的。临床心理学家克洛伊卡迈克尔（Chloe Carmichael）博士说：“我们有时不愿意起床。这并不总是一件坏事。这其实是大自然母亲在用她的方式告诉你，你太累了，是时候休息了。知道自己什么时候需要休息是保持健康的关键。如果这种情况非常频繁，或者较你的生活习惯而言，发生得过于频繁的话，你可能需要找个人谈一谈。”</p>
+          </div>
+
+<h3 id="III"><a href="#III" class="headerlink" title="III"></a>III</h3><p>判断你是否能够解决你的担忧。如果你知道自己怕的是什么，那么第二步就是判断自己能否解决这个问题，或者说这是不是只有时间（或者想象）才能应对的问题。如果你的恐惧大部分来源于你的想象，或者你现在无法处理，那么有意识地控制自己不要去想这些东西。如果你的担忧是一些需要着手解决的东西，那就采取措施，制定行动方案。</p>
+<ul>
+<li>你可以做什么来缓解这种恐惧或者担忧呢？</li>
+<li>这是一种长期的，还是短期的解决方案？</li>
+<li>我该如何防止这种担忧或者恐惧再次发生？</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/13/20200513001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/05/12/20200512001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/20200512001.html" class="post-title-link" itemprop="url">如何和猫咪交流</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-12T00:00:00+08:00">2020-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/how/" itemprop="url" rel="index"><span itemprop="name">how</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>科学家已经发现，猫咪们其实有一套自己的交流方式，而这种交流并不简单，其中包含了数百种不同的声音，用以向主人表达它们的不同需求。如果可以弄懂猫咪想要和你“说”些什么，并且明白猫咪如何理解人类的交流方式，你就可以与你的猫咪更好地理解对方，建立更加亲密友好的关系。</p>
+</blockquote>
+<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><h2 id="读懂猫咪的身体语言"><a href="#读懂猫咪的身体语言" class="headerlink" title="读懂猫咪的身体语言"></a>读懂猫咪的身体语言</h2><h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>观察猫咪的尾巴。和狗一样，猫也会通过尾部的动作来交流。了解猫咪声音语言的基础上再了解它们用尾巴传递出的信号，可以帮助你更准确地了解猫咪的需要。常见的尾部动作的含义如下：</p>
+<ul>
+<li>尾巴直直地竖起来，尾端稍稍卷起，意味着猫咪很开心。</li>
+<li>如果猫咪的尾巴一抽一抽的，那么它很可能要么很兴奋，要么很紧张。</li>
+<li>尾巴上的毛竖起来，或者显得蓬松而浓密，意味着猫咪感觉受到了威胁。</li>
+<li>尾巴不停摆动，意味着猫咪见到你很高兴。</li>
+<li>如果猫咪尾巴呈“N”字形，上面的毛竖起来，那么就意味着这时的猫咪极具进攻性。这种动作经常在打架或者自我防卫的时候出现。</li>
+<li>尾巴上的毛竖起来，但是尾巴是垂下来的，那么就是指猫咪感觉受到了威胁，或者有进攻的想法。</li>
+<li>尾巴低低地垂下来，藏在屁股后边，则意味着猫咪很害怕。</li>
+</ul>
+<h3 id="II"><a href="#II" class="headerlink" title="II"></a>II</h3><p>观察猫咪的眼睛。注视猫咪的眼睛有助于和它建立感情，并了解它的想法。但是要小心，直愣愣地盯着，眼都不眨的话，表示进攻，会让猫咪觉得不舒服的。</p>
+<ul>
+<li>如果猫咪瞳孔放大，那么它要么是觉得好玩、兴奋；要么就是害怕，或者有进攻的想法。你可以结合它的其他表现来弄清楚究竟是那种情况。</li>
+<li>如果猫咪直视你的眼睛，意味着它很信任你，愿意呆在你身边。</li>
+<li>猫咪慢慢地眨眼睛，也是表达感情的方式，意思是和你呆在一起很舒服。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/12/20200512001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/04/30/20200430001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/30/20200430001.html" class="post-title-link" itemprop="url">Agile--敏捷</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-30T00:00:00+08:00">2020-04-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Agile/" itemprop="url" rel="index"><span itemprop="name">Agile</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>在这变幻莫测，信息爆炸的时代，我们每天接收都的信息量足够让我们的崩溃数十次。当然工作也是如此，时时刻刻面对这不确定信息和不稳定因素。那么我们如何处理以这些事情；如何响应这些事情。客观莫急，我会在后面很长时间里，在这里与大家不定期分享我个人对于敏捷的学习以及实践。</p>
+</blockquote>
+<h1 id="Agile【敏捷】"><a href="#Agile【敏捷】" class="headerlink" title="Agile【敏捷】"></a>Agile【敏捷】</h1><p>在2019年的后半年我才接触并意识到敏捷的存在。当时认为敏捷只是一种形式或一种概念。然后人们将某种行为或某种特定行动理解为敏捷。</p>
+<p>最近在一次无意中接触到了敏捷更多的信息，瞬间感觉头顶往外冒凉气。可能是被我之前的无知吓到了。</p>
+<p>敏捷不只可以用到开发、产品、项目、团队，甚至事业部、公司等等都可以用到敏捷思维，或用原文作者的词<code>敏捷框架</code>，这个框架更像是一个协议。当然我也只是看了一些零零碎碎的东西，后面我会继续搜集更多的资料扩展自己的理解以及认知。</p>
+<p>我是从事开发的，所以我会先从开发角度去理解，然后会一步一步的理解并实践。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/30/20200430001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2020/04/24/20200424001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/24/20200424001.html" class="post-title-link" itemprop="url">对于管理工具的执着是否值得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-04-24T00:00:00+08:00">2020-04-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>智能设备的普及也诞生了很多时间管理工具，如<code>番茄类</code>、<code>Todo类</code>、<code>Calendar</code>、<code>GTD</code>，当我们尝试过十几款这类工具之后，会发现自己可能已经陷入一个怪圈无法自拔。想象中可以借助工具提高的工作效率可能还不如使用工具之前。问题出在了哪里？人的问题？工具的问题？下面是我个人的体会，只代表个人对于这件事情的理解和见解。</p>
+</blockquote>
+<h1 id="自黑"><a href="#自黑" class="headerlink" title="自黑"></a>自黑</h1><p>自19年初开始，我就开始寻找各种各样的时间管理工具，当初的想法很单纯，只是想记录一下当天以及以后要做的事情并能够提醒自己即可。<br>期间尝试过很多知名或非知名，专业或非专业的工具。但是效果甚微，因为我的关注点在工具而不是事情。<br>有那么一段时间，一个事情会在至少3个工具上记录，但是这些都在几天之后遗忘甚至把工具删除。删除这些工具的原因也比较正常，就是不好用，使用成本过高或者没有达到自己想要的效果。</p>
+<h1 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h1><p>从20年2月份开始，发现简简单单才是真。我想起了当初使用工具的原因及初衷，然后我选择了现在的我所谓的工具套件</p>
+<ul>
+<li>事件提醒：提醒事项（Mac自带）</li>
+<li>文字记录：备忘录（Mac自带）</li>
+<li>日历：Calendar 366 II（方便查看提醒事项和日期事件）</li>
+<li>效率追踪：RescueTime（监控电脑使用时间及时间分类，会有日报及周报发到邮箱里）</li>
+</ul>
+<h2 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h2><p>为什么使用这些工具，因为简单、方便。</p>
+<ul>
+<li><code>提醒事项</code>和<code>备忘录</code>可以与我手机实时同步且是原生软件稳定性更好。</li>
+<li><code>Calendar 366</code>其实是在菜单栏中把<code>提醒事项</code>和<code>日历</code>内容放到一起且可操作。</li>
+<li><code>RescueTime</code>是分析自己每天都在做什么。<br>就是这些，因为我的诉求也很简单。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/24/20200424001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2019/12/25/20191225001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/25/20191225001.html" class="post-title-link" itemprop="url">Html页面支持暗黑模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-25T00:00:00+08:00">2019-12-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>自19年开始，Android和IOS平台，都开始玩暗黑模式。当然这没什么不好，但是当我们的页面被用户在暗黑模式打开之后，会被那传统大白色瞬间闪瞎双眼。<br>下面会简单的说一下如何让页面支持暗黑模式。</p>
+</blockquote>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>其实，我们只是需要使用到css中的<code>prefers-color-scheme</code>媒体查询。</p>
+<ol>
+<li><code>no-preference</code>表示用户未制定操作系统主题。作为布尔值时，为<code>false</code>输出。</li>
+<li><code>light</code>表示用户的操作系统是浅色主题。</li>
+<li><code>dark</code>表示用户的操作系统是深色主题。</li>
+</ol>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li>这篇文章发布的时候，微信还无法拿到<code>prefers-color-scheme</code>参数，所以当我们在微信中打开页面目前不支持暗黑模式。</li>
+<li>此方法只是一个简单demo，可以使用该方法拓展出其他实现方式。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0BtZWRpYS9wcmVmZXJzLWNvbG9yLXNjaGVtZQ==" title="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme">prefers-color-scheme说明<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQubWVhb28uY24vbGlnaHRfZGFyay5odG1s" title="https://git.meaoo.cn/light_dark.html">DEMO地址<i class="fa fa-external-link"></i></span></li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/25/20191225001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2019/10/23/20191023001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/23/20191023001.html" class="post-title-link" itemprop="url">oh-my-zsh中git快捷对照表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-23T00:00:00+08:00">2019-10-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="oh-my-zsh中git快捷对照表"><a href="#oh-my-zsh中git快捷对照表" class="headerlink" title="oh-my-zsh中git快捷对照表"></a>oh-my-zsh中git快捷对照表</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/23/20191023001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2019/09/01/20190901001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/01/20190901001.html" class="post-title-link" itemprop="url">十渡-团建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-01T00:00:00+08:00">2019-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Travel/" itemprop="url" rel="index"><span itemprop="name">Travel</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>时间：2019年9月1日<br>地点：十渡</p>
+</blockquote>
+<p><img src="https://img1.meaoo.cn/2019/09/01/001.jpg" alt></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/01/20190901001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2018/10/31/20181031001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/31/20181031001.html" class="post-title-link" itemprop="url">Mac OS 设置Git补全</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-31 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-31T00:00:00+08:00">2018-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>最近遇到一个操作不是很爽的事情，在Mac OS上，使用Git竟然没有补全，对于我这记性不好的人来说，简直就是噩梦。所以下面介绍如何在Mac上让在使用Git的时候，按tab有补全。</p>
+</blockquote>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ol>
+<li>brew，不要问我brew是啥，这玩意儿类似于CentOS上的yum，到<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==" title="https://brew.sh/">brew官网<i class="fa fa-external-link"></i></span>进行下载安装，官网有多种语言，包括中文，不要告诉我你看不懂中文。</li>
+<li>Git，这里说的Git是客户端，到<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=" title="https://git-scm.com/">Git客户端<i class="fa fa-external-link"></i></span>进行下载。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/31/20181031001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2018/10/10/20181010002.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/10/10/20181010002.html" class="post-title-link" itemprop="url">甲板遛弯儿</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-10 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-10T00:00:00+08:00">2018-10-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Travel/" itemprop="url" rel="index"><span itemprop="name">Travel</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <video src="https://img1.meaoo.cn/video/20181012002.mp4" preload="metadata" controls playsinline poster>Sorry, your browser does not support the video tag.</video>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="喵先生"
+      src="https://img1.meaoo.cn/static/avatar.png">
+  <p class="site-author-name" itemprop="name">喵先生</p>
+  <div class="site-description" itemprop="description">喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmJsb2dAbWVhb28uY24=" title="E-Mail → mailto:blog@meaoo.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL215b25nZmVuZw==" title="Linkedin → https://www.linkedin.com/in/myongfeng"><i class="fa fa-fw fa-linkedin"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9tZWFvb0NO" title="Twitter → https://twitter.com/meaooCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL21lYW9vQ04=" title="Facebook → https://www.facebook.com/meaooCN"><i class="fa fa-fw fa-facebook"></i>Facebook</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly85OTYuaWN1" title="https://996.icu">996</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.meaoo.cn" title="https://www.meaoo.cn">喵先生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9pbG92ZS53b3Jrcw==" title="https://ilove.works">ILoveWork</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbi8=">京ICP备13004645号-7 </span>
+      <img src="https://img1.meaoo.cn/static/icon-police.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTExMDEwNTAyMDM1MzQ5">京公网安备11010502035349号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喵先生</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://img1.meaoo.cn/static/favicon/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img1.meaoo.cn/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img1.meaoo.cn/static/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://img1.meaoo.cn/static/favicon/favicon.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="GN_MRoDKMLLA4Qy8TqMBiyZGdFuTMInW0j0VJqg-r_s">
+  <meta name="msvalidate.01" content="B7AA699B7651FBC7F9E1E6DCE43FBD19">
+  <meta name="yandex-verification" content="3da251841e2becb2">
+  <meta name="baidu-site-verification" content="y9dBoV0s1KdIhQlt">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.meaoo.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在Android开发中，我们经常会遇到需要给用户一个提示，但是又不想影响整体的体验，那么Toast出现了。Toast是Android中用来显示显示信息的一种机制，和Dialog不一样的是，Toast是没有焦点的，而且Toast显示的时间有限，过一定的时间就会自动消失。而且Toast主要用于向用户显示提示消息。  传参介绍Toast.makeText(Context context, CharSe">
+<meta name="keywords" content="Coder,Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中Toast用法">
+<meta property="og:url" content="https://www.meaoo.cn/2017/07/21/20170721011.html">
+<meta property="og:site_name" content="喵先生">
+<meta property="og:description" content="在Android开发中，我们经常会遇到需要给用户一个提示，但是又不想影响整体的体验，那么Toast出现了。Toast是Android中用来显示显示信息的一种机制，和Dialog不一样的是，Toast是没有焦点的，而且Toast显示的时间有限，过一定的时间就会自动消失。而且Toast主要用于向用户显示提示消息。  传参介绍Toast.makeText(Context context, CharSe">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/90923882.jpg">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/86789629.jpg">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/85657168.jpg">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/32648017.jpg">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/40741446.jpg">
+<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android中Toast用法">
+<meta name="twitter:description" content="在Android开发中，我们经常会遇到需要给用户一个提示，但是又不想影响整体的体验，那么Toast出现了。Toast是Android中用来显示显示信息的一种机制，和Dialog不一样的是，Toast是没有焦点的，而且Toast显示的时间有限，过一定的时间就会自动消失。而且Toast主要用于向用户显示提示消息。  传参介绍Toast.makeText(Context context, CharSe">
+<meta name="twitter:image" content="https://img1.meaoo.cn/2018/02/11/90923882.jpg">
+
+<link rel="canonical" href="https://www.meaoo.cn/2017/07/21/20170721011.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android中Toast用法 | 喵先生</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?017d15f439443dc58587606a42f85193";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">喵先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不会写代码的程序猿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721011.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android中Toast用法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>在Android开发中，我们经常会遇到需要给用户一个提示，但是又不想影响整体的体验，那么Toast出现了。Toast是Android中用来显示显示信息的一种机制，和Dialog不一样的是，Toast是没有焦点的，而且Toast显示的时间有限，过一定的时间就会自动消失。而且Toast主要用于向用户显示提示消息。</p>
+</blockquote>
+<h3 id="传参介绍"><a href="#传参介绍" class="headerlink" title="传参介绍"></a>传参介绍</h3><p><code>Toast.makeText(Context context, CharSequence text, @Duration int duration)</code></p>
+<ul>
+<li><code>contentx</code> ： 当前的上下文环境。可用<code>getApplicationContext()</code>或<code>this</code></li>
+<li><code>text</code> ： 要显示的字符串。</li>
+<li><code>duration</code> ： 显示的时间长短，以毫秒为单位。Toast默认的有两个<code>LENGTH_LONG</code>(长)和<code>LENGTH_SHORT</code>(短)，也可以使用毫秒如2000 </li>
+</ul>
+ <a id="more"></a>
+
+<h3 id="显示的几种方式"><a href="#显示的几种方式" class="headerlink" title="显示的几种方式"></a>显示的几种方式</h3><ol>
+<li>默认</li>
+<li>自定义位置</li>
+<li>带图片</li>
+<li>完全自定义</li>
+</ol>
+<h3 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h3><p>几个<code>button</code>按钮，方便测试使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button android:layout_width=&quot;match_parent&quot;</span><br><span class="line">          android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">          android:text=&quot;默认的Toast&quot;</span><br><span class="line">          android:id=&quot;@+id/defaultToastBtn&quot;</span><br><span class="line">          android:textSize=&quot;20dp&quot;</span><br><span class="line">  /&gt;</span><br><span class="line"></span><br><span class="line"> &lt;Button android:layout_width=&quot;match_parent&quot;</span><br><span class="line">         android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">         android:text=&quot;自定义位置的Toast&quot;</span><br><span class="line">         android:id=&quot;@+id/customLocationBtn&quot;</span><br><span class="line">         android:layout_below=&quot;@id/defaultToastBtn&quot;</span><br><span class="line">         android:textSize=&quot;20dp&quot;</span><br><span class="line"> /&gt;</span><br><span class="line"></span><br><span class="line"> &lt;Button android:layout_width=&quot;match_parent&quot;</span><br><span class="line">         android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">         android:text=&quot;带图片的Toast&quot;</span><br><span class="line">         android:id=&quot;@+id/imageToastBtn&quot;</span><br><span class="line">         android:layout_below=&quot;@id/customLocationBtn&quot;</span><br><span class="line">         android:textSize=&quot;20dp&quot;</span><br><span class="line"> /&gt;</span><br><span class="line"></span><br><span class="line"> &lt;Button android:layout_width=&quot;match_parent&quot;</span><br><span class="line">         android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">         android:text=&quot;完全自定义的Toast&quot;</span><br><span class="line">         android:id=&quot;@+id/customToastBtn&quot;</span><br><span class="line">         android:layout_below=&quot;@id/imageToastBtn&quot;</span><br><span class="line">         android:textSize=&quot;20dp&quot;</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>显示效果</strong><br><img src="https://img1.meaoo.cn/2018/02/11/90923882.jpg" alt="按钮布局效果"></p>
+<h3 id="完全自定义页面"><a href="#完全自定义页面" class="headerlink" title="完全自定义页面"></a>完全自定义页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;ImageView android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:id=&quot;@+id/imageView&quot;</span><br><span class="line"> /&gt;</span><br><span class="line"> &lt;TextView android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">           android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">           android:id=&quot;@+id/textView&quot;</span><br><span class="line">           android:layout_below=&quot;@id/imageView&quot;</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Activity处理"><a href="#Activity处理" class="headerlink" title="Activity处理"></a>Activity处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        //绑定监听事件</span><br><span class="line">        findViewById(R.id.defaultToastBtn).setOnClickListener(toastBtn);</span><br><span class="line">        findViewById(R.id.customLocationBtn).setOnClickListener(toastBtn);</span><br><span class="line">        findViewById(R.id.imageToastBtn).setOnClickListener(toastBtn);</span><br><span class="line">        findViewById(R.id.customToastBtn).setOnClickListener(toastBtn);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    View.OnClickListener toastBtn;</span><br><span class="line">    Handler handler;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        toastBtn = new View.OnClickListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            //监听事件处理方法</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                int what = 0;</span><br><span class="line">                Object obj = &quot;&quot;;</span><br><span class="line">                switch (v.getId()) &#123;</span><br><span class="line">                    case R.id.defaultToastBtn:</span><br><span class="line">                        what = 1;</span><br><span class="line">                        obj = &quot;默认的Toast&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                    case R.id.customLocationBtn:</span><br><span class="line">                        what = 2;</span><br><span class="line">                        obj = &quot;自定义位置的Toast&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                    case R.id.imageToastBtn:</span><br><span class="line">                        what = 3;</span><br><span class="line">                        obj = &quot;带图片的Toast&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                    case R.id.customToastBtn:</span><br><span class="line">                        what = 4;</span><br><span class="line">                        obj = &quot;完全自定义的Toast&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                    default:</span><br><span class="line">                        what = 0;</span><br><span class="line">                        obj = &quot;数据错误&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">                handler.obtainMessage(what, obj).sendToTarget();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        handler = new Handler(Looper.getMainLooper()) &#123;</span><br><span class="line">            @Override</span><br><span class="line">            //消息提示处理</span><br><span class="line">            public void handleMessage(Message message) &#123;</span><br><span class="line">                Toast toast;</span><br><span class="line">                ImageView imageView;</span><br><span class="line">                switch (message.what) &#123;</span><br><span class="line">                    case 0:</span><br><span class="line">                        Toast.makeText(getApplicationContext(), message.obj.toString(), Toast.LENGTH_SHORT).show();</span><br><span class="line">                        break;</span><br><span class="line">                    case 1:</span><br><span class="line">                        //默认</span><br><span class="line">                        Toast.makeText(getApplicationContext(), message.obj.toString(), Toast.LENGTH_SHORT).show();</span><br><span class="line">                        break;</span><br><span class="line">                    case 2:</span><br><span class="line">                        //自定义</span><br><span class="line">                        toast = Toast.makeText(getApplicationContext(), message.obj.toString(), Toast.LENGTH_LONG);</span><br><span class="line">                        toast.setGravity(Gravity.CENTER, 0, 0);// 居中显示</span><br><span class="line">                        toast.show();</span><br><span class="line">                        break;</span><br><span class="line">                    case 3:</span><br><span class="line">                        //带图片</span><br><span class="line">                        toast = Toast.makeText(getApplicationContext(), message.obj.toString(), Toast.LENGTH_LONG);</span><br><span class="line">                        toast.setGravity(Gravity.TOP, 0, 0);// 最上方显示</span><br><span class="line">                        LinearLayout toastLayout = (LinearLayout) toast.getView();</span><br><span class="line">                        imageView = new ImageView(getApplicationContext());</span><br><span class="line">                        imageView.setImageResource(R.drawable.ic_launcher);</span><br><span class="line">                        toastLayout.addView(imageView, 0);// 0 图片在文字的上方 ， 1 图片在文字的下方</span><br><span class="line">                        toast.show();</span><br><span class="line">                        break;</span><br><span class="line">                    case 4:</span><br><span class="line">                        //完全自定义，需要创建一个xml模板</span><br><span class="line">                        LayoutInflater inflater = getLayoutInflater();// LayoutInflater对象</span><br><span class="line">                        View layout = inflater.inflate(R.layout.custom_view, null);</span><br><span class="line">                        imageView = (ImageView) layout.findViewById(R.id.imageView);</span><br><span class="line">                        TextView text = (TextView) layout.findViewById(R.id.textView);</span><br><span class="line">                        imageView.setImageResource(R.drawable.ic_launcher);</span><br><span class="line">                        text.setText(message.obj.toString());</span><br><span class="line"></span><br><span class="line">                        toast = new Toast(getApplicationContext());</span><br><span class="line">                        // 底部 、水平居中,X偏移50 Y偏移50</span><br><span class="line">                        toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM, 50, 50);</span><br><span class="line">                        toast.setDuration(Toast.LENGTH_SHORT);</span><br><span class="line">                        toast.setView(layout);</span><br><span class="line">                        toast.show();</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>运行效果图</strong></p>
+<ul>
+<li>默认<br><img src="https://img1.meaoo.cn/2018/02/11/86789629.jpg" alt="默认"></li>
+<li>自定义位置<br><img src="https://img1.meaoo.cn/2018/02/11/85657168.jpg" alt="自定义位置"></li>
+<li>带图片<br><img src="https://img1.meaoo.cn/2018/02/11/32648017.jpg" alt="带图片"></li>
+<li>完全自定义<br><img src="https://img1.meaoo.cn/2018/02/11/40741446.jpg" alt="完全自定义"></li>
+</ul>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>如果对上面的内容有任何疑问或者问题，无法得到解决，请与我联系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//发送邮件或者添加QQ，请说明什么问题，以及文章链接，这样方便对您的问题进行更详尽的回答</span><br><span class="line">E-mail：blog@meaoo.cn</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>喵先生
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.meaoo.cn/2017/07/21/20170721011.html" title="Android中Toast用法">https://www.meaoo.cn/2017/07/21/20170721011.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Coder/" rel="tag"><i class="fa fa-tag"></i> Coder</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/07/21/20170721012.html" rel="prev" title="Android实现购物车动画">
+      <i class="fa fa-chevron-left"></i> Android实现购物车动画
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/07/21/20170721010.html" rel="next" title="在WordPress中开发API接口">
+      在WordPress中开发API接口 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#传参介绍"><span class="nav-number">1.</span> <span class="nav-text">传参介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示的几种方式"><span class="nav-number">2.</span> <span class="nav-text">显示的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面布局"><span class="nav-number">3.</span> <span class="nav-text">页面布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全自定义页面"><span class="nav-number">4.</span> <span class="nav-text">完全自定义页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity处理"><span class="nav-number">5.</span> <span class="nav-text">Activity处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结尾"><span class="nav-number">6.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="喵先生"
+      src="https://img1.meaoo.cn/static/avatar.png">
+  <p class="site-author-name" itemprop="name">喵先生</p>
+  <div class="site-description" itemprop="description">喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmJsb2dAbWVhb28uY24=" title="E-Mail → mailto:blog@meaoo.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL215b25nZmVuZw==" title="Linkedin → https://www.linkedin.com/in/myongfeng"><i class="fa fa-fw fa-linkedin"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9tZWFvb0NO" title="Twitter → https://twitter.com/meaooCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL21lYW9vQ04=" title="Facebook → https://www.facebook.com/meaooCN"><i class="fa fa-fw fa-facebook"></i>Facebook</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly85OTYuaWN1" title="https://996.icu">996</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.meaoo.cn" title="https://www.meaoo.cn">喵先生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9pbG92ZS53b3Jrcw==" title="https://ilove.works">ILoveWork</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbi8=">京ICP备13004645号-7 </span>
+      <img src="https://img1.meaoo.cn/static/icon-police.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTExMDEwNTAyMDM1MzQ5">京公网安备11010502035349号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喵先生</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

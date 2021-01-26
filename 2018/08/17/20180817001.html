@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://img1.meaoo.cn/static/favicon/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img1.meaoo.cn/static/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://img1.meaoo.cn/static/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="https://img1.meaoo.cn/static/favicon/favicon.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="GN_MRoDKMLLA4Qy8TqMBiyZGdFuTMInW0j0VJqg-r_s">
+  <meta name="msvalidate.01" content="B7AA699B7651FBC7F9E1E6DCE43FBD19">
+  <meta name="yandex-verification" content="3da251841e2becb2">
+  <meta name="baidu-site-verification" content="y9dBoV0s1KdIhQlt">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.meaoo.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="近期有这样的一个需求，需要把kanboard进行改进，需要在添加任务的时候，可以添加图片。由于kanboard使用的是markddown进行文本编辑，那么问题来了，怎样进行markddown的图片上传呢，解决方案是有的，比如简书，已经实现了markddown图片粘贴上传。但是呢，我是个比较懒的人，那么还有一个解决方案，使用富文本编辑器。下文介绍如何将kanboard中的markddown编辑器修">
+<meta name="keywords" content="Coder,PHP,Kanboard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kanboard修改富文本编辑器">
+<meta property="og:url" content="https://www.meaoo.cn/2018/08/17/20180817001.html">
+<meta property="og:site_name" content="喵先生">
+<meta property="og:description" content="近期有这样的一个需求，需要把kanboard进行改进，需要在添加任务的时候，可以添加图片。由于kanboard使用的是markddown进行文本编辑，那么问题来了，怎样进行markddown的图片上传呢，解决方案是有的，比如简书，已经实现了markddown图片粘贴上传。但是呢，我是个比较懒的人，那么还有一个解决方案，使用富文本编辑器。下文介绍如何将kanboard中的markddown编辑器修">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/2.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/1.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/3.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/4.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/5.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/6.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/7.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/8.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/9.png">
+<meta property="og:image" content="https://img1.meaoo.cn/2018/08/17/10.png">
+<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kanboard修改富文本编辑器">
+<meta name="twitter:description" content="近期有这样的一个需求，需要把kanboard进行改进，需要在添加任务的时候，可以添加图片。由于kanboard使用的是markddown进行文本编辑，那么问题来了，怎样进行markddown的图片上传呢，解决方案是有的，比如简书，已经实现了markddown图片粘贴上传。但是呢，我是个比较懒的人，那么还有一个解决方案，使用富文本编辑器。下文介绍如何将kanboard中的markddown编辑器修">
+<meta name="twitter:image" content="https://img1.meaoo.cn/2018/08/17/2.png">
+
+<link rel="canonical" href="https://www.meaoo.cn/2018/08/17/20180817001.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Kanboard修改富文本编辑器 | 喵先生</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?017d15f439443dc58587606a42f85193";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">喵先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个不会写代码的程序猿</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2018/08/17/20180817001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img1.meaoo.cn/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kanboard修改富文本编辑器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-17T00:00:00+08:00">2018-08-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kanboard/" itemprop="url" rel="index"><span itemprop="name">Kanboard</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>近期有这样的一个需求，需要把<span class="exturl" data-url="aHR0cHM6Ly9rYW5ib2FyZC5vcmcv" title="https://kanboard.org/">kanboard<i class="fa fa-external-link"></i></span>进行改进，需要在添加任务的时候，可以添加图片。由于<span class="exturl" data-url="aHR0cHM6Ly9rYW5ib2FyZC5vcmcv" title="https://kanboard.org/">kanboard<i class="fa fa-external-link"></i></span>使用的是markddown进行文本编辑，那么问题来了，怎样进行markddown的图片上传呢，解决方案是有的，比如简书，已经实现了markddown图片粘贴上传。但是呢，我是个比较懒的人，那么还有一个解决方案，使用富文本编辑器。下文介绍如何将kanboard中的markddown编辑器修改为富文本编辑器。</p>
+</blockquote>
+<h1 id="选材"><a href="#选材" class="headerlink" title="选材"></a>选材</h1><p>现今富文本编辑器已经有很多了，而且都很完善，那么选择哪个富文本编辑器的问题就来了。需求有两个：</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ol>
+<li>可以直接粘贴图片到富文本编辑器</li>
+<li>改动代码越少越好</li>
+</ol>
+<h2 id="入选"><a href="#入选" class="headerlink" title="入选"></a>入选</h2><p>经过一系列的筛选，现在有两个富文本编辑器入选</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3VlZGl0b3IuYmFpZHUuY29t" title="http://ueditor.baidu.com">百度的UEditor<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy53YW5nZWRpdG9yLmNvbS8=" title="http://www.wangeditor.com/">wangEditor<i class="fa fa-external-link"></i></span></li>
+</ol>
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><p>由于百度UEditor已经在2016年的5月就不再维护，并且需要引入资源略多，虽说只有js资源和css资源，但是还是略多。<br>最后选择使用wangEditor富文本编辑器，为啥呢，因为只需要引入js文件即可。</p>
+ <a id="more"></a>
+
+<h1 id="改版"><a href="#改版" class="headerlink" title="改版"></a>改版</h1><p>选材已经搞完，那么就开始动工了。</p>
+<h2 id="引入JS"><a href="#引入JS" class="headerlink" title="引入JS"></a>引入JS</h2><p>将wangEditor的JS文件，引入kanboard</p>
+<ol>
+<li>将JS粘贴到<code>assets/js</code>目录下</li>
+<li>打开模板的<code>app/Template/layout.php</code>页面，在所有js资源加载的最后，引入wangEditor的js，如下图：<br><img src="https://img1.meaoo.cn/2018/08/17/2.png" alt="页面引入JS"></li>
+</ol>
+<h2 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h2><p>之前引入JS之后，刷新一下页面试试，应该会报下面的错误，如下图：<br><img src="https://img1.meaoo.cn/2018/08/17/1.png" alt="报错"><br>该错误是由于kanboard的<code>CSP</code>机制导致的，什么是CSP？<span class="exturl" data-url="aHR0cHM6Ly9yZXNlYXJjaC5nb29nbGUuY29tL3B1YnMvcHViNDU1NDIuaHRtbD9zcG09YTJjNGUuMTExNTM5NDAuYmxvZ2NvbnQ2MTE0NC45LjUwOTI3ZDc2aExTYmVEJmZyb209dGltZWxpbmUmaXNhcHBpbnN0YWxsZWQ9MA==" title="https://research.google.com/pubs/pub45542.html?spm=a2c4e.11153940.blogcont61144.9.50927d76hLSbeD&from=timeline&isappinstalled=0">点击查看什么是CSP<i class="fa fa-external-link"></i></span>。当然解决办法也很简单。</p>
+<ol>
+<li>找到kanboard中csp的配置，位置在<code>app/ServiceProvider/ClassProvider.php</code>中，找到最下面的<code>register</code>方法，将<code>cspRules</code>数组中的设置，改为下面的代码</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'default-src'</span> =&gt; <span class="string">"'self' 'unsafe-inline' 'unsafe-eval'"</span>,</span><br><span class="line"><span class="string">'style-src'</span> =&gt; <span class="string">"'self' 'unsafe-inline'"</span>,</span><br><span class="line"><span class="string">'script-src'</span> =&gt; <span class="string">"'self' 'unsafe-inline' 'unsafe-eval'"</span>,</span><br><span class="line"><span class="string">'font-src'</span> =&gt; <span class="string">'* data:'</span>,</span><br><span class="line"><span class="string">'img-src'</span> =&gt; <span class="string">'* data:'</span>,</span><br></pre></td></tr></table></figure>
+
+<p>再次刷新，报错没有了。继续解决下面的问题。</p>
+<h1 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h1><p>有人会问了，显示还不简单，直接复制进去就完事儿了。<br>其实吧，显示这个事情真的还是比较费劲的。请继续往下看。</p>
+<h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>由于富文本编辑器需要使用JS进行渲染，那么首先要解决的就是，在添加任务的面板上，让kanboard执行js。是的，让面板执行js，因为kanboard不执行页面的js</p>
+<ol>
+<li>首先找到添加任务的面板位置，<code>app/Template/task_creation/show.php</code>文件。找到class为<code>task-form-main-column</code>的div，然后在里面随便添加点什么，看看是不是该面板。代码如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"task-form-main-column"</span>&gt;</span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTitleField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionTemplateDropdown($project[<span class="string">'id'</span>]) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTagField($project) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="tag">&lt;<span class="name">span</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;hook-&gt;render(<span class="string">'template:task:form:first-column'</span>, <span class="keyword">array</span>(<span class="string">'values'</span> =&gt; $values, <span class="string">'errors'</span> =&gt; $errors)) <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>&lt;span&gt;测试&lt;/span&gt;</code>是我自己添加的，显示效果如下图<br><img src="https://img1.meaoo.cn/2018/08/17/3.png" alt="显示测试"></p>
+<ol start="2">
+<li>下面添加js执行，看看是否执行了。添加代码如下</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"task-form-main-column"</span>&gt;</span></span><br><span class="line">  <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTitleField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line">  <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line">  <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionTemplateDropdown($project[<span class="string">'id'</span>]) <span class="meta">?&gt;</span></span></span><br><span class="line">  <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTagField($project) <span class="meta">?&gt;</span></span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"application/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">     <span class="built_in">console</span>.log(<span class="string">'这是测试的输出'</span>);</span></span><br><span class="line"><span class="actionscript">     alert(<span class="string">'测试一个'</span>);</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;hook-&gt;render(<span class="string">'template:task:form:first-column'</span>, <span class="keyword">array</span>(<span class="string">'values'</span> =&gt; $values, <span class="string">'errors'</span> =&gt; $errors)) <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>那么这样的执行结果如何？请看下图<br><img src="https://img1.meaoo.cn/2018/08/17/4.png" alt="控制台"><br>空空如也的控制台输出，这说明了什么？kanboard压根就没有执行这段代码。是因为kanboard不执行吗？不是的，因为这是添加任务的面板是ajax调用出来的。证明是什么呢？如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"application/javascript"</span>&gt;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'这是测试的输出'</span>);</span><br><span class="line">     alert(<span class="string">'测试一个'</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将这段代码复制到<code>app/Template/layout.php</code>中，也就是咱们前面添加wangEditor的下面，看看是否执行，如下图<br><img src="https://img1.meaoo.cn/2018/08/17/5.png" alt="正常运行"></p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>根据上面的运行结果，得出结论，常规的JS加载是不可用的，那么我们能不能学学插件里的JS是怎么写的，插件的JS是如何加载的。如下图，日历组件的js加载<br><img src="https://img1.meaoo.cn/2018/08/17/6.png" alt="日历组件加载"><br>可以看到，组件是通过<code>KB.component</code>进行的注册，然后再方法内的<code>this.render</code>中进行的方法调用。<br>根据上面的做法，我们需要自己写一个加载富文本编辑器的JS，并且我们需要直接粘贴图片，我现在又不希望再做一个图片上传的方法，那么，我们就可以将富文本编辑器的图片直接转成base64进行存储及显示，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">KB.component(<span class="string">'wang-edit'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    this.render = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> E = window.wangEditor</span><br><span class="line">        <span class="keyword">var</span> editor = <span class="keyword">new</span> E(<span class="string">'#wang-editor'</span>);</span><br><span class="line"></span><br><span class="line">        editor.customConfig.menus = [</span><br><span class="line">            <span class="string">'head'</span>,  <span class="comment">// 标题</span></span><br><span class="line">            <span class="string">'bold'</span>,  <span class="comment">// 粗体</span></span><br><span class="line">            <span class="string">'fontSize'</span>,  <span class="comment">// 字号</span></span><br><span class="line">            <span class="string">'fontName'</span>,  <span class="comment">// 字体</span></span><br><span class="line">            <span class="string">'italic'</span>,  <span class="comment">// 斜体</span></span><br><span class="line">            <span class="string">'underline'</span>,  <span class="comment">// 下划线</span></span><br><span class="line">            <span class="string">'strikeThrough'</span>,  <span class="comment">// 删除线</span></span><br><span class="line">            <span class="string">'foreColor'</span>,  <span class="comment">// 文字颜色</span></span><br><span class="line">            <span class="string">'link'</span>,  <span class="comment">// 插入链接</span></span><br><span class="line">            <span class="string">'list'</span>,  <span class="comment">// 列表</span></span><br><span class="line">            <span class="string">'justify'</span>,  <span class="comment">// 对齐方式</span></span><br><span class="line">            <span class="string">'quote'</span>,  <span class="comment">// 引用</span></span><br><span class="line">            <span class="string">'image'</span>,  <span class="comment">// 插入图片</span></span><br><span class="line">            <span class="string">'table'</span>  <span class="comment">// 表格</span></span><br><span class="line">        ]</span><br><span class="line">        editor.customConfig.uploadImgShowBase64 = <span class="keyword">true</span></span><br><span class="line">        editor.create();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意，记住咱们的js注册名，<code>wang-edit</code>然后将这个JS引入，位置放到之前引入富文本编辑器下面。</p>
+<h1 id="富文本编辑器显示"><a href="#富文本编辑器显示" class="headerlink" title="富文本编辑器显示"></a>富文本编辑器显示</h1><h2 id="富文本编辑器加载"><a href="#富文本编辑器加载" class="headerlink" title="富文本编辑器加载"></a>富文本编辑器加载</h2><p>文本编辑器加载，位置在<code>app/Template/task_creation/show.php</code>文件。找到class为<code>task-form-main-column</code>的div，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"task-form-main-column"</span>&gt;</span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTitleField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionField($values, $errors) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderDescriptionTemplateDropdown($project[<span class="string">'id'</span>]) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;task-&gt;renderTagField($project) <span class="meta">?&gt;</span></span></span><br><span class="line"> <span class="php"><span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;hook-&gt;render(<span class="string">'template:task:form:first-column'</span>, <span class="keyword">array</span>(<span class="string">'values'</span> =&gt; $values, <span class="string">'errors'</span> =&gt; $errors)) <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中的<code>&lt;?= $this-&gt;task-&gt;renderDescriptionField($values, $errors) ?&gt;</code>是文本编辑器加载的地方.</p>
+<ol>
+<li>我们根据这个加载的方法，找到php中加载的地方。位置是<code>app/Helper/TaskHelper.php</code>，再搜索<code>renderDescriptionField</code>方法，即可找到，会发现，该方法中是直接返回的另外一个方法发加载，代码为<code>return $this-&gt;helper-&gt;form-&gt;textEditor(&#39;description&#39;, $values, $errors, array(&#39;tabindex&#39; =&gt; 2));</code></li>
+<li>那么我们继续找，方法为<code>textEditor</code>的，位置为<code>app/Helper/FormHelper.php</code>,然后找到<code>textEditorEE</code>方法，代码如下</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">textEditor</span><span class="params">($name, $values = array<span class="params">()</span>, array $errors = array<span class="params">()</span>, array $attributes = array<span class="params">()</span>)</span></span>&#123;</span><br><span class="line">  $params = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'name'</span> =&gt; $name,</span><br><span class="line">    <span class="string">'text'</span> =&gt; <span class="keyword">isset</span>($values[$name]) ? $values[$name] : <span class="string">''</span>,</span><br><span class="line">    <span class="string">'css'</span> =&gt; <span class="keyword">$this</span>-&gt;errorClass($errors, $name),</span><br><span class="line">    <span class="string">'required'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'required'</span>]) &amp;&amp; $attributes[<span class="string">'required'</span>],</span><br><span class="line">    <span class="string">'tabindex'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'tabindex'</span>]) ? $attributes[<span class="string">'tabindex'</span>] : <span class="string">'-1'</span>,</span><br><span class="line">    <span class="string">'labelPreview'</span> =&gt; t(<span class="string">'Preview'</span>),</span><br><span class="line">    <span class="string">'labelWrite'</span> =&gt; t(<span class="string">'Write'</span>),</span><br><span class="line">    <span class="string">'placeholder'</span> =&gt; t(<span class="string">'Write your text in Markdown'</span>),</span><br><span class="line">    <span class="string">'autofocus'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'autofocus'</span>]) &amp;&amp; $attributes[<span class="string">'autofocus'</span>],</span><br><span class="line">    <span class="string">'suggestOptions'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">      <span class="string">'triggers'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'#'</span> =&gt; <span class="keyword">$this</span>-&gt;helper-&gt;url-&gt;to(<span class="string">'TaskAjaxController'</span>, <span class="string">'suggest'</span>, <span class="keyword">array</span>(<span class="string">'search'</span> =&gt; <span class="string">'SEARCH_TERM'</span>)),</span><br><span class="line">       )</span><br><span class="line">      ),</span><br><span class="line">   );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">isset</span>($values[<span class="string">'project_id'</span>])) &#123;</span><br><span class="line">   $params[<span class="string">'suggestOptions'</span>][<span class="string">'triggers'</span>][<span class="string">'@'</span>] = <span class="keyword">$this</span>-&gt;helper-&gt;url-&gt;to(<span class="string">'UserAjaxController'</span>, <span class="string">'mention'</span>, <span class="keyword">array</span>(<span class="string">'project_id'</span> =&gt; $values[<span class="string">'project_id'</span>], <span class="string">'search'</span> =&gt; <span class="string">'SEARCH_TERM'</span>));</span><br><span class="line">   &#125;</span><br><span class="line">   $html = <span class="string">'&lt;div class="js-text-editor" data-params=\''</span>.json_encode($params, JSON_HEX_APOS).<span class="string">'\'&gt;&lt;/div&gt;'</span>;</span><br><span class="line">   $html .= <span class="keyword">$this</span>-&gt;errorList($errors, $name);</span><br><span class="line">   <span class="keyword">return</span> $html;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们需要做的是，只需要改一行代码，<br>将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$html = &apos;&lt;div class=&quot;js-text-editor&quot; data-params=\&apos;&apos;.json_encode($params, JSON_HEX_APOS).&apos;\&apos;&gt;&lt;/div&gt;&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>改为富文本编辑器加载的div，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$html = &apos;&lt;div class=&quot;js-wang-edit&quot; id=&quot;wang-editor&quot; style=&quot;width: 100%&quot;&gt;&lt;/div&gt;&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以了，我们再运行页面看看。注意，class为<code>js-wang-edit</code>因为咱们之前的js注册名为<code>wang-edit</code><br>这里class引入的时候，在前面加上<code>js-</code>后面写上js的注册名，这些配置好之后，运行图如下：<br><img src="https://img1.meaoo.cn/2018/08/17/7.png" alt="运行图"></p>
+<h2 id="关键任务测试"><a href="#关键任务测试" class="headerlink" title="关键任务测试"></a>关键任务测试</h2><p>富文本编辑器加载成，那么试试这次的关键任务，截图直接粘贴到富文本编辑器，效果如下图<br><img src="https://img1.meaoo.cn/2018/08/17/8.png" alt="效果图"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>然后点击保存按钮，你会发现，之前的功夫都白费了。因为内容根本就没有添加到数据库。</p>
+<h2 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h2><p>这个问题是肯定会出现的，如果你仔细的话，会发现，提交的数据中，<code>description</code>字段为空，然后再看之前的编辑器，内容其实是一个<code>textarea</code>容器，那么解决办法来了</p>
+<ol>
+<li>在渲染富文本编辑器的下面添加上一个隐藏的<code>textarea</code>，id为<code>description</code>,name为<code>description</code>，另外将<code>$params[&#39;text&#39;]</code>加载进去，这个参数取到的是之前的内容，代码如下</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">textEditor</span><span class="params">($name, $values = array<span class="params">()</span>, array $errors = array<span class="params">()</span>, array $attributes = array<span class="params">()</span>)</span></span>&#123;</span><br><span class="line">  $params = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'name'</span> =&gt; $name,</span><br><span class="line">    <span class="string">'text'</span> =&gt; <span class="keyword">isset</span>($values[$name]) ? $values[$name] : <span class="string">''</span>,</span><br><span class="line">    <span class="string">'css'</span> =&gt; <span class="keyword">$this</span>-&gt;errorClass($errors, $name),</span><br><span class="line">    <span class="string">'required'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'required'</span>]) &amp;&amp; $attributes[<span class="string">'required'</span>],</span><br><span class="line">    <span class="string">'tabindex'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'tabindex'</span>]) ? $attributes[<span class="string">'tabindex'</span>] : <span class="string">'-1'</span>,</span><br><span class="line">    <span class="string">'labelPreview'</span> =&gt; t(<span class="string">'Preview'</span>),</span><br><span class="line">    <span class="string">'labelWrite'</span> =&gt; t(<span class="string">'Write'</span>),</span><br><span class="line">    <span class="string">'placeholder'</span> =&gt; t(<span class="string">'Write your text in Markdown'</span>),</span><br><span class="line">    <span class="string">'autofocus'</span> =&gt; <span class="keyword">isset</span>($attributes[<span class="string">'autofocus'</span>]) &amp;&amp; $attributes[<span class="string">'autofocus'</span>],</span><br><span class="line">    <span class="string">'suggestOptions'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">      <span class="string">'triggers'</span> =&gt; <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">'#'</span> =&gt; <span class="keyword">$this</span>-&gt;helper-&gt;url-&gt;to(<span class="string">'TaskAjaxController'</span>, <span class="string">'suggest'</span>, <span class="keyword">array</span>(<span class="string">'search'</span> =&gt; <span class="string">'SEARCH_TERM'</span>)),</span><br><span class="line">       )</span><br><span class="line">      ),</span><br><span class="line">   );</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">isset</span>($values[<span class="string">'project_id'</span>])) &#123;</span><br><span class="line">   $params[<span class="string">'suggestOptions'</span>][<span class="string">'triggers'</span>][<span class="string">'@'</span>] = <span class="keyword">$this</span>-&gt;helper-&gt;url-&gt;to(<span class="string">'UserAjaxController'</span>, <span class="string">'mention'</span>, <span class="keyword">array</span>(<span class="string">'project_id'</span> =&gt; $values[<span class="string">'project_id'</span>], <span class="string">'search'</span> =&gt; <span class="string">'SEARCH_TERM'</span>));</span><br><span class="line">   &#125;</span><br><span class="line">   $html = <span class="string">'&lt;div class="js-wang-edit" id="wang-editor" style="width: 100%"&gt;&lt;p&gt;'</span>.$params[<span class="string">'text'</span>].<span class="string">'&lt;/p&gt;&lt;/div&gt;'</span>;</span><br><span class="line">   $html .= <span class="string">'&lt;textarea  name="description" id="description" style="display: none"&gt;'</span>.$params[<span class="string">'text'</span>].<span class="string">'&lt;/textarea&gt;'</span>;</span><br><span class="line">   $html .= <span class="keyword">$this</span>-&gt;errorList($errors, $name);</span><br><span class="line">   <span class="keyword">return</span> $html;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库出问题"><a href="#数据库出问题" class="headerlink" title="数据库出问题"></a>数据库出问题</h2><p>这时候我们再试试，没问题，文字可以保存，图片可以保存进去。但是，如果你幸运的话，会看到这么一个错误，<code>Internal Error: SQL error: SQLSTATE[22001]: String data, right truncated: 1046 Data too long for column &#39;description&#39; as row 1</code>，报错很明显，数据库的字段不够长。</p>
+<h2 id="解决数据库问题"><a href="#解决数据库问题" class="headerlink" title="解决数据库问题"></a>解决数据库问题</h2><ol>
+<li>修改tasks表的报错,sql代码如下</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`kanboard`</span>.<span class="string">`tasks`</span> </span><br><span class="line"><span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="string">`description`</span> longtext <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="literal">NULL</span> <span class="keyword">AFTER</span> <span class="string">`title`</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改user_has_unread_notifications表的报错，sql代码如下</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`kanboard`</span>.<span class="string">`user_has_unread_notifications`</span> </span><br><span class="line"><span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="string">`event_data`</span> longtext <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">AFTER</span> <span class="string">`event_name`</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>修改project_activities表的报错，sql代码如下</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`kanboard`</span>.<span class="string">`project_activities`</span> </span><br><span class="line"><span class="keyword">MODIFY</span> <span class="keyword">COLUMN</span> <span class="string">`data`</span> longtext <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="literal">NULL</span> <span class="keyword">AFTER</span> <span class="string">`task_id`</span>;</span><br></pre></td></tr></table></figure>
+
+<p>再次运行，会有一个惊喜的发现，问题解决了。</p>
+<h2 id="邮件内容问题"><a href="#邮件内容问题" class="headerlink" title="邮件内容问题"></a>邮件内容问题</h2><p>邮件提醒的内容可能会让你更惊喜，如下图<br><img src="https://img1.meaoo.cn/2018/08/17/9.png" alt="邮件提醒"><br>是的，邮件提醒中是这样的，因为html没有解析</p>
+<h2 id="邮件内容解决"><a href="#邮件内容解决" class="headerlink" title="邮件内容解决"></a>邮件内容解决</h2><p>这个解决办法是临时的，也是最暴力的，就是在发送邮件的时候，将内容描述去掉,代码目录在<code>app/Model/UserUnreadNotificationModel.php</code>中的<code>create</code>方法，我们使用<code>unset($event_data[&#39;description&#39;]);</code>将<code>description</code>去掉即可，这个会在下个版本进行改进</p>
+<h2 id="任务展示问题"><a href="#任务展示问题" class="headerlink" title="任务展示问题"></a>任务展示问题</h2><p>当前面这些都解决了，图片也添加进去了，你开开心心的点开任务的时候，会发现如下图<br><img src="https://img1.meaoo.cn/2018/08/17/10.png" alt="展示页面"></p>
+<h2 id="任务展示问题解决"><a href="#任务展示问题解决" class="headerlink" title="任务展示问题解决"></a>任务展示问题解决</h2><ol>
+<li>找到任务展示文件<code>app/Template/task/show.php</code>文件</li>
+<li>找到<code>empty($task[&#39;description&#39;])</code>这个的判断，代码如下</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span> (!<span class="keyword">empty</span>($task[<span class="string">'description'</span>])): <span class="meta">?&gt;</span></span><br><span class="line"> <span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;hook-&gt;render(<span class="string">'template:task:show:before-description'</span>, <span class="keyword">array</span>(<span class="string">'task'</span> =&gt; $task, <span class="string">'project'</span> =&gt; $project)) <span class="meta">?&gt;</span></span><br><span class="line"> <span class="meta">&lt;?</span>= <span class="keyword">$this</span>-&gt;render(<span class="string">'task/description'</span>, <span class="keyword">array</span>(<span class="string">'task'</span> =&gt; $task)) <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">endif</span> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码是进行的markdown的解析，由于富文本编辑器存入数据库的就是html所以我们就不用解析，直接展示即可，代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span> (!<span class="keyword">empty</span>($task[<span class="string">'description'</span>])): <span class="meta">?&gt;</span></span><br><span class="line">   <span class="meta">&lt;?</span>= $task[<span class="string">'description'</span>] <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">endif</span> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="全都乱了"><a href="#全都乱了" class="headerlink" title="全都乱了"></a>全都乱了</h2><p>等上面的事情都好了之后，你的心情的美美的，当你打开评论的时候会发现，全乱了，评论的面板也变成了富文本编辑器，所有的编辑地方都变成了富文本编辑器。这个时候我们需要将之前改的<code>textEditor</code>方法进行一个封装，因为<code>renderDescriptionField</code>方法只是任务创建和修改的方法，不会影响其他的，将<code>renderDescriptionField</code>中的方法改成我们自己封装的方法即可。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面的解决方法只是临时的，需要改进的地方是，图片上传使用的是base64，会对数据库造成大批量的字节写入，拖垮数据库，需要将图片上传改用cdn存储<br>已经有了解决方法，点击链接跳转<a href="https://www.meaoo.cn/2018/09/03/20180903001.html">解决Kanboard修改富文本编辑器遗留问题</a></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>喵先生
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.meaoo.cn/2018/08/17/20180817001.html" title="Kanboard修改富文本编辑器">https://www.meaoo.cn/2018/08/17/20180817001.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Coder/" rel="tag"><i class="fa fa-tag"></i> Coder</a>
+              <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+              <a href="/tags/Kanboard/" rel="tag"><i class="fa fa-tag"></i> Kanboard</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/07/27/20180727001.html" rel="prev" title="袁世凯故居">
+      <i class="fa fa-chevron-left"></i> 袁世凯故居
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/03/20180903001.html" rel="next" title="解决Kanboard修改富文本编辑器遗留问题">
+      解决Kanboard修改富文本编辑器遗留问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#选材"><span class="nav-number">1.</span> <span class="nav-text">选材</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入选"><span class="nav-number">1.2.</span> <span class="nav-text">入选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择"><span class="nav-number">1.3.</span> <span class="nav-text">选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改版"><span class="nav-number">2.</span> <span class="nav-text">改版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入JS"><span class="nav-number">2.1.</span> <span class="nav-text">引入JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误解决"><span class="nav-number">2.2.</span> <span class="nav-text">错误解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示"><span class="nav-number">3.</span> <span class="nav-text">显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试"><span class="nav-number">3.1.</span> <span class="nav-text">尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.2.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#富文本编辑器显示"><span class="nav-number">4.</span> <span class="nav-text">富文本编辑器显示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#富文本编辑器加载"><span class="nav-number">4.1.</span> <span class="nav-text">富文本编辑器加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键任务测试"><span class="nav-number">4.2.</span> <span class="nav-text">关键任务测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">4.3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决-1"><span class="nav-number">4.4.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库出问题"><span class="nav-number">4.5.</span> <span class="nav-text">数据库出问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决数据库问题"><span class="nav-number">4.6.</span> <span class="nav-text">解决数据库问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件内容问题"><span class="nav-number">4.7.</span> <span class="nav-text">邮件内容问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件内容解决"><span class="nav-number">4.8.</span> <span class="nav-text">邮件内容解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务展示问题"><span class="nav-number">4.9.</span> <span class="nav-text">任务展示问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务展示问题解决"><span class="nav-number">4.10.</span> <span class="nav-text">任务展示问题解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全都乱了"><span class="nav-number">4.11.</span> <span class="nav-text">全都乱了</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束"><span class="nav-number">6.</span> <span class="nav-text">结束</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="喵先生"
+      src="https://img1.meaoo.cn/static/avatar.png">
+  <p class="site-author-name" itemprop="name">喵先生</p>
+  <div class="site-description" itemprop="description">喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOmJsb2dAbWVhb28uY24=" title="E-Mail → mailto:blog@meaoo.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL215b25nZmVuZw==" title="Linkedin → https://www.linkedin.com/in/myongfeng"><i class="fa fa-fw fa-linkedin"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9tZWFvb0NO" title="Twitter → https://twitter.com/meaooCN"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL21lYW9vQ04=" title="Facebook → https://www.facebook.com/meaooCN"><i class="fa fa-fw fa-facebook"></i>Facebook</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly85OTYuaWN1" title="https://996.icu">996</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.meaoo.cn" title="https://www.meaoo.cn">喵先生</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9pbG92ZS53b3Jrcw==" title="https://ilove.works">ILoveWork</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbi8=">京ICP备13004645号-7 </span>
+      <img src="https://img1.meaoo.cn/static/icon-police.png" style="display: inline-block;"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5nb3YuY24vcG9ydGFsL3JlZ2lzdGVyU3lzdGVtSW5mbz9yZWNvcmRjb2RlPTExMDEwNTAyMDM1MzQ5">京公网安备11010502035349号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">喵先生</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>
