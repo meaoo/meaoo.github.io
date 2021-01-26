@@ -203,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721014.html">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721012.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
@@ -217,7 +217,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2017/07/21/20170721014.html" class="post-title-link" itemprop="url">CentOS修改IP地址</a>
+            <a href="/2017/07/21/20170721012.html" class="post-title-link" itemprop="url">Android实现购物车动画</a>
         </h2>
 
         <div class="post-meta">
@@ -235,7 +235,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
                 </span>
             </span>
 
@@ -250,92 +250,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CentOS-修改IP地址"><a href="#CentOS-修改IP地址" class="headerlink" title="CentOS 修改IP地址"></a>CentOS 修改IP地址</h1><ul>
-<li>修改IP都需要找到网卡配置文件<br><code>/etc/sysconfig/network-scripts/ifcfg-eth0</code></li>
-<li>都需要进行DNS配置<br><code>/etc/resolv.conf</code></li>
-<li>关闭防火墙<ol>
-<li>关闭命令 <code>service iptables stop</code></li>
-<li>永久关闭 <code>chkconfig iptables off</code></li>
-</ol>
-</li>
-</ul>
+          <blockquote>
+<p>需求：点击触发事件，使一个圆点或者其他的什么东西，移动到另外一个元素上。由于是使用坐标进行移动，所以，会出现起始点位置，中途的路径，落点位置的点不是中心点，而是做小X轴和Y轴焦点。当然这个案例会考虑这个问题，并解决这个问题。</p>
+</blockquote>
+<h3 id="示例图"><a href="#示例图" class="headerlink" title="示例图"></a>示例图</h3><p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/9133460.jpg" alt="Android实现购物车动画示例图"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721014.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721016.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
-      <meta itemprop="name" content="喵先生">
-      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="喵先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/21/20170721016.html" class="post-title-link" itemprop="url">Nginx 开启GZIP压缩</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gzip on;  #开启Gzip</span><br><span class="line">gzip_min_length 1k; #不压缩临界值，大于1K的才压缩，一般不用改</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line">#gzip_http_version 1.0; #反向代理，一般不用开启</span><br><span class="line">gzip_comp_level 4; #压缩级别</span><br><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line">gzip_vary off; #压缩文件类型</span><br><span class="line">gzip_disable &quot;MSIE [1-6]\.&quot;; #ie浏览器不发送gzip</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721016.html#more" rel="contents">
+              <a class="btn" href="/2017/07/21/20170721012.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -450,6 +371,236 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721014.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/21/20170721014.html" class="post-title-link" itemprop="url">CentOS修改IP地址</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CentOS-修改IP地址"><a href="#CentOS-修改IP地址" class="headerlink" title="CentOS 修改IP地址"></a>CentOS 修改IP地址</h1><ul>
+<li>修改IP都需要找到网卡配置文件<br><code>/etc/sysconfig/network-scripts/ifcfg-eth0</code></li>
+<li>都需要进行DNS配置<br><code>/etc/resolv.conf</code></li>
+<li>关闭防火墙<ol>
+<li>关闭命令 <code>service iptables stop</code></li>
+<li>永久关闭 <code>chkconfig iptables off</code></li>
+</ol>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/21/20170721014.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721015.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/21/20170721015.html" class="post-title-link" itemprop="url">Git常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GIT常用命令"><a href="#GIT常用命令" class="headerlink" title="GIT常用命令"></a>GIT常用命令</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/21/20170721015.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721016.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/21/20170721016.html" class="post-title-link" itemprop="url">Nginx 开启GZIP压缩</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gzip on;  #开启Gzip</span><br><span class="line">gzip_min_length 1k; #不压缩临界值，大于1K的才压缩，一般不用改</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line">#gzip_http_version 1.0; #反向代理，一般不用开启</span><br><span class="line">gzip_comp_level 4; #压缩级别</span><br><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line">gzip_vary off; #压缩文件类型</span><br><span class="line">gzip_disable &quot;MSIE [1-6]\.&quot;; #ie浏览器不发送gzip</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/21/20170721016.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721017.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -507,165 +658,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/07/21/20170721017.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721012.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
-      <meta itemprop="name" content="喵先生">
-      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="喵先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/21/20170721012.html" class="post-title-link" itemprop="url">Android实现购物车动画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>需求：点击触发事件，使一个圆点或者其他的什么东西，移动到另外一个元素上。由于是使用坐标进行移动，所以，会出现起始点位置，中途的路径，落点位置的点不是中心点，而是做小X轴和Y轴焦点。当然这个案例会考虑这个问题，并解决这个问题。</p>
-</blockquote>
-<h3 id="示例图"><a href="#示例图" class="headerlink" title="示例图"></a>示例图</h3><p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/9133460.jpg" alt="Android实现购物车动画示例图"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721012.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721011.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
-      <meta itemprop="name" content="喵先生">
-      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="喵先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/21/20170721011.html" class="post-title-link" itemprop="url">Android中Toast用法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>在Android开发中，我们经常会遇到需要给用户一个提示，但是又不想影响整体的体验，那么Toast出现了。Toast是Android中用来显示显示信息的一种机制，和Dialog不一样的是，Toast是没有焦点的，而且Toast显示的时间有限，过一定的时间就会自动消失。而且Toast主要用于向用户显示提示消息。</p>
-</blockquote>
-<h3 id="传参介绍"><a href="#传参介绍" class="headerlink" title="传参介绍"></a>传参介绍</h3><p><code>Toast.makeText(Context context, CharSequence text, @Duration int duration)</code></p>
-<ul>
-<li><code>contentx</code> ： 当前的上下文环境。可用<code>getApplicationContext()</code>或<code>this</code></li>
-<li><code>text</code> ： 要显示的字符串。</li>
-<li><code>duration</code> ： 显示的时间长短，以毫秒为单位。Toast默认的有两个<code>LENGTH_LONG</code>(长)和<code>LENGTH_SHORT</code>(短)，也可以使用毫秒如2000 </li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721011.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -772,7 +764,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721021.html">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721019.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
@@ -786,7 +778,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2017/07/21/20170721021.html" class="post-title-link" itemprop="url">WordPress通过Filters更改qurey_posts()产生的SQL语句</a>
+            <a href="/2017/07/21/20170721019.html" class="post-title-link" itemprop="url">Redio和CheckBox自定义样式，模仿Check</a>
         </h2>
 
         <div class="post-meta">
@@ -804,7 +796,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
                 </span>
             </span>
 
@@ -820,12 +812,11 @@
 
       
           <blockquote>
-<p>通过<code>query_posts()</code>的<code>filters</code>更改其产生的SQL语句,可以做想针对复杂的查询,如与其他数据库表进行联合查询,更改<code>select</code>选择的字段等等.并且可以享用<code>query_posts()</code>带来的好处,例如分页.</p>
+<p>模仿ICheck制作轻量级<code>redio</code>和<code>checkbox</code>样式修改</p>
 </blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可用的filters有</span></span><br><span class="line"></span><br><span class="line">posts_join</span><br><span class="line">posts_groupby</span><br><span class="line">posts_orderby</span><br><span class="line">posts_distinct</span><br><span class="line">posts_fields</span><br><span class="line">post_limits</span><br><span class="line">posts_where_paged</span><br><span class="line">posts_join_paged</span><br><span class="line">posts_request</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721021.html#more" rel="contents">
+              <a class="btn" href="/2017/07/21/20170721019.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -929,7 +920,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721019.html">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721021.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
@@ -943,7 +934,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2017/07/21/20170721019.html" class="post-title-link" itemprop="url">Redio和CheckBox自定义样式，模仿Check</a>
+            <a href="/2017/07/21/20170721021.html" class="post-title-link" itemprop="url">WordPress通过Filters更改qurey_posts()产生的SQL语句</a>
         </h2>
 
         <div class="post-meta">
@@ -961,7 +952,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                  <a href="/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
                 </span>
             </span>
 
@@ -977,11 +968,12 @@
 
       
           <blockquote>
-<p>模仿ICheck制作轻量级<code>redio</code>和<code>checkbox</code>样式修改</p>
+<p>通过<code>query_posts()</code>的<code>filters</code>更改其产生的SQL语句,可以做想针对复杂的查询,如与其他数据库表进行联合查询,更改<code>select</code>选择的字段等等.并且可以享用<code>query_posts()</code>带来的好处,例如分页.</p>
 </blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可用的filters有</span></span><br><span class="line"></span><br><span class="line">posts_join</span><br><span class="line">posts_groupby</span><br><span class="line">posts_orderby</span><br><span class="line">posts_distinct</span><br><span class="line">posts_fields</span><br><span class="line">post_limits</span><br><span class="line">posts_where_paged</span><br><span class="line">posts_join_paged</span><br><span class="line">posts_request</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721019.html#more" rel="contents">
+              <a class="btn" href="/2017/07/21/20170721021.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
