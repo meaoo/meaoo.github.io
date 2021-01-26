@@ -453,80 +453,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721015.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
-      <meta itemprop="name" content="喵先生">
-      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="喵先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/07/21/20170721015.html" class="post-title-link" itemprop="url">Git常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="GIT常用命令"><a href="#GIT常用命令" class="headerlink" title="GIT常用命令"></a>GIT常用命令</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721015.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721016.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -681,7 +607,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721018.html">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721015.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
@@ -695,7 +621,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2017/07/21/20170721018.html" class="post-title-link" itemprop="url">PHP计算两时间差</a>
+            <a href="/2017/07/21/20170721015.html" class="post-title-link" itemprop="url">Git常用命令</a>
         </h2>
 
         <div class="post-meta">
@@ -713,7 +639,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                  <a href="/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a>
                 </span>
             </span>
 
@@ -728,19 +654,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>这个需求是计算两个时间的差值,当然PHP在5.3版本已经提供了相关的计算函数,本文也会有该函数的示例,除了PHP提供的解决方法之外,这里会再提供几种解决方式以供参考.<br>需求如下</p>
-<ol>
-<li>差值小于24小时,为今天</li>
-<li>差值小于30天,直接显示剩余天数</li>
-<li>差值大于30天,显示1月之后</li>
-</ol>
-</blockquote>
-<h3 id="内置函数解决方案"><a href="#内置函数解决方案" class="headerlink" title="内置函数解决方案"></a>内置函数解决方案</h3><p>使用函数<code>date_diff</code>计算两日期差值,返回的是<code>DateInterval</code>的object数据,直接根据相关需求进行数据处理即可.==注意:传入日期格式,对传入日期进行格式化==,当然关于天的计算标准,需要根据情况来看,比如1月1号到1月5号,系统计算出来的是4天,但是人们会认为1号到5号是5天,这个根据实际情况来进行一个细节处理.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 传入日期格式 2017-01-23</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $begin_time</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $end_time</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> DateInterval|false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time_difference</span> <span class="params">( $begin_time , $end_time )</span> </span>&#123;</span><br><span class="line">    $datetime1 = date_create ( $begin_time );</span><br><span class="line">    $datetime2 = date_create ( $end_time );</span><br><span class="line">    $interval = date_diff ( $datetime1 , $datetime2 );</span><br><span class="line">    <span class="keyword">return</span> $interval;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="GIT常用命令"><a href="#GIT常用命令" class="headerlink" title="GIT常用命令"></a>GIT常用命令</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2017/07/21/20170721018.html#more" rel="contents">
+              <a class="btn" href="/2017/07/21/20170721015.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -817,6 +734,89 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/07/21/20170721019.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.meaoo.cn/2017/07/21/20170721018.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/static/avatar.png">
+      <meta itemprop="name" content="喵先生">
+      <meta itemprop="description" content="喵先生个人博客，一个简简单单的PHPer。记录着所有的碎碎念。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="喵先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/21/20170721018.html" class="post-title-link" itemprop="url">PHP计算两时间差</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">2017-07-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>这个需求是计算两个时间的差值,当然PHP在5.3版本已经提供了相关的计算函数,本文也会有该函数的示例,除了PHP提供的解决方法之外,这里会再提供几种解决方式以供参考.<br>需求如下</p>
+<ol>
+<li>差值小于24小时,为今天</li>
+<li>差值小于30天,直接显示剩余天数</li>
+<li>差值大于30天,显示1月之后</li>
+</ol>
+</blockquote>
+<h3 id="内置函数解决方案"><a href="#内置函数解决方案" class="headerlink" title="内置函数解决方案"></a>内置函数解决方案</h3><p>使用函数<code>date_diff</code>计算两日期差值,返回的是<code>DateInterval</code>的object数据,直接根据相关需求进行数据处理即可.==注意:传入日期格式,对传入日期进行格式化==,当然关于天的计算标准,需要根据情况来看,比如1月1号到1月5号,系统计算出来的是4天,但是人们会认为1号到5号是5天,这个根据实际情况来进行一个细节处理.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 传入日期格式 2017-01-23</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $begin_time</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $end_time</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> DateInterval|false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time_difference</span> <span class="params">( $begin_time , $end_time )</span> </span>&#123;</span><br><span class="line">    $datetime1 = date_create ( $begin_time );</span><br><span class="line">    $datetime2 = date_create ( $end_time );</span><br><span class="line">    $interval = date_diff ( $datetime1 , $datetime2 );</span><br><span class="line">    <span class="keyword">return</span> $interval;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/07/21/20170721018.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
