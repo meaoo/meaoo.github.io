@@ -35,16 +35,16 @@
 <meta property="og:site_name" content="喵先生">
 <meta property="og:description" content="如果你有一个简书账号，或者是其他的社区账号，有想使用一个自己的域名访问自己的主页，那么恰巧，这个社区不允许独立域名绑定或者不接受解析，那该怎么办？下面将告诉你如何解决这个小问题。   注 ： 由于时间有限，这里暂时只介绍使用js的重定向进行，这个最简单，也不会影响搜索引擎的SEO  需要准备 GitHub账号，如果没有GitHub账号或者对GitHub不了解的同学，请先了解GitHub，GitH">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/91919959.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/74586899.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/36651192.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/23396768.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/02/11/30412534.jpg">
-<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/91919959.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/74586899.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/36651192.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/23396768.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/30412534.jpg">
+<meta property="og:updated_time" content="2021-01-26T03:20:44.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用GitHub-Pages服务进行页面跳转">
 <meta name="twitter:description" content="如果你有一个简书账号，或者是其他的社区账号，有想使用一个自己的域名访问自己的主页，那么恰巧，这个社区不允许独立域名绑定或者不接受解析，那该怎么办？下面将告诉你如何解决这个小问题。   注 ： 由于时间有限，这里暂时只介绍使用js的重定向进行，这个最简单，也不会影响搜索引擎的SEO  需要准备 GitHub账号，如果没有GitHub账号或者对GitHub不了解的同学，请先了解GitHub，GitH">
-<meta name="twitter:image" content="https://img1.meaoo.cn/2018/02/11/91919959.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/91919959.jpg">
 
 <link rel="canonical" href="https://www.meaoo.cn/2017/07/21/20170721008.html">
 
@@ -280,19 +280,19 @@
 </li>
 <li><p>将这两个文件上传到GitHub项目里</p>
 </li>
-<li><p>然后你的GitHub项目里会有下面两个文件<br><img src="https://img1.meaoo.cn/2018/02/11/91919959.jpg" alt="GitHub项目中的文件"></p>
+<li><p>然后你的GitHub项目里会有下面两个文件<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/91919959.jpg" alt="GitHub项目中的文件"></p>
 </li>
 </ol>
 <h3 id="GitHub-Pages设置"><a href="#GitHub-Pages设置" class="headerlink" title="GitHub Pages设置"></a>GitHub Pages设置</h3><ol>
-<li>在GitHub的项目文件里，点击<code>settings</code><br><img src="https://img1.meaoo.cn/2018/02/11/74586899.jpg" alt="settings"></li>
+<li>在GitHub的项目文件里，点击<code>settings</code><br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/74586899.jpg" alt="settings"></li>
 <li>找到<code>GitHub Pages</code>设置</li>
-<li><code>Source</code>设置为<code>master branch</code>，然后点击<code>Save</code><br><img src="https://img1.meaoo.cn/2018/02/11/36651192.jpg" alt="GitHub Pages设置"></li>
-<li>这时候，你将会看到之前写在<code>CNAME</code>文件里的域名会显示出来<br><img src="https://img1.meaoo.cn/2018/02/11/23396768.jpg" alt="域名绑定"></li>
+<li><code>Source</code>设置为<code>master branch</code>，然后点击<code>Save</code><br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/36651192.jpg" alt="GitHub Pages设置"></li>
+<li>这时候，你将会看到之前写在<code>CNAME</code>文件里的域名会显示出来<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/23396768.jpg" alt="域名绑定"></li>
 <li>然后访问GitHub给你的这个网址，试试是否可以跳转到你想要跳转的地方，如果不行，请检查上面步骤是否正确</li>
 </ol>
 <h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><ol>
 <li>对你购买的域名进行<code>cname</code>解析，记录值写上GitHub给你的地址，这里需要去掉项目名，并且去掉前缀，也就是<code>http://</code>或<code>https://</code>，也就是你需要填写上的地址是<code>用户名.github.io</code>这样的形式</li>
-<li>当然主机记录填写的也就是域名的前缀，一般会填写<code>www</code>，然后域名会拼接成<code>www.你的域名.com</code>这样的地址，也就是你上传到<code>GitHub</code>里的<code>CNAME</code>里面所写的内容<br><img src="https://img1.meaoo.cn/2018/02/11/30412534.jpg" alt="域名解析"></li>
+<li>当然主机记录填写的也就是域名的前缀，一般会填写<code>www</code>，然后域名会拼接成<code>www.你的域名.com</code>这样的地址，也就是你上传到<code>GitHub</code>里的<code>CNAME</code>里面所写的内容<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/02/11/30412534.jpg" alt="域名解析"></li>
 <li>解析完成之后，需要等待2分钟左右，访问你的域名，如果不成功，那么请检查上面的步骤是否正确</li>
 </ol>
 <h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>至此，使用GitHub的Pages服务进行页面跳转就成功了，当然有很多方式进行这些，国内也有类似的托管服务，以后有机会我会对其他方式的跳转进行讲解</p>
@@ -338,12 +338,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/07/21/20170721010.html" rel="prev" title="在WordPress中开发API接口">
-      <i class="fa fa-chevron-left"></i> 在WordPress中开发API接口
+    <a href="/2017/07/21/20170721009.html" rel="prev" title="使用JS判断页面是否在微信中打开">
+      <i class="fa fa-chevron-left"></i> 使用JS判断页面是否在微信中打开
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/07/21/20170721009.html" rel="next" title="使用JS判断页面是否在微信中打开">
-      使用JS判断页面是否在微信中打开 <i class="fa fa-chevron-right"></i>
+    <a href="/2017/07/21/20170721007.html" rel="next" title="使用外部程序向WordPress写入文章改进版">
+      使用外部程序向WordPress写入文章改进版 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

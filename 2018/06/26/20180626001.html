@@ -35,17 +35,17 @@
 <meta property="og:site_name" content="喵先生">
 <meta property="og:description" content="由于国内使用npm官方源安装包的时候比较慢，基本上在国内开发都会修改npm源地址  查看NPM源地址，在终端输入以下命令 1npm config list   会看到官方的npm源 1metrics-registry = &amp;quot;https://registry.npmjs.org/&amp;quot; 常用源源地址 国内常用的镜像地址如淘宝  npm：https://registry.npm.ta">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626163947.png">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626164204.png">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626164421.png">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626164506.png">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626164716.png">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/06/20180626164830.png">
-<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626163947.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164204.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164421.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164506.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164716.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164830.png">
+<meta property="og:updated_time" content="2021-01-26T03:20:44.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用NRM进行NPM的源管理">
 <meta name="twitter:description" content="由于国内使用npm官方源安装包的时候比较慢，基本上在国内开发都会修改npm源地址  查看NPM源地址，在终端输入以下命令 1npm config list   会看到官方的npm源 1metrics-registry = &amp;quot;https://registry.npmjs.org/&amp;quot; 常用源源地址 国内常用的镜像地址如淘宝  npm：https://registry.npm.ta">
-<meta name="twitter:image" content="https://img1.meaoo.cn/2018/06/20180626163947.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626163947.png">
 
 <link rel="canonical" href="https://www.meaoo.cn/2018/06/26/20180626001.html">
 
@@ -280,22 +280,22 @@
 </blockquote>
 <h2 id="安装-建议全局安装"><a href="#安装-建议全局安装" class="headerlink" title="安装 (建议全局安装)"></a>安装 (建议全局安装)</h2><p> <code>npm install nrm -g --save</code></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p> nrm有一些默认配置，用<code>nrm ls</code>命令查看默认配置，带*号即为当前使用的配置<br> <code>nrm ls</code>输出结果如下图</p>
-<p> <img src="https://img1.meaoo.cn/2018/06/20180626163947.png" alt="TIM截图20180626163947"></p>
+<p> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626163947.png" alt="TIM截图20180626163947"></p>
 <h3 id="输出当前源"><a href="#输出当前源" class="headerlink" title="输出当前源"></a>输出当前源</h3><p> <code>nrm current</code></p>
 <h3 id="切换源"><a href="#切换源" class="headerlink" title="切换源"></a>切换源</h3><p> 切到源<code>http://r.cnpmjs.org/</code>，命令：<code>nrm use 源的别名</code>，即</p>
 <p> <code>nrm use cnpm</code></p>
-<p> 执行成功提示如下<br> <img src="https://img1.meaoo.cn/2018/06/20180626164204.png" alt="TIM截图20180626164204"></p>
+<p> 执行成功提示如下<br> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164204.png" alt="TIM截图20180626164204"></p>
 <h3 id="添加自定义源"><a href="#添加自定义源" class="headerlink" title="添加自定义源"></a>添加自定义源</h3><p> <code>nrm add</code></p>
 <p> 如<code>http://registry.npm.meaoo.cn</code>(随便写的)，起个别名叫meaoo</p>
 <p> <code>nrm add meaoo http://registry.npm.meaoo.cn</code></p>
-<p> 添加成功，如下图<br> <img src="https://img1.meaoo.cn/2018/06/20180626164421.png" alt="TIM截图20180626164421"></p>
-<p> 接着查看nrm配置，如下图<br> <img src="https://img1.meaoo.cn/2018/06/20180626164506.png" alt="TIM截图20180626164506"></p>
+<p> 添加成功，如下图<br> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164421.png" alt="TIM截图20180626164421"></p>
+<p> 接着查看nrm配置，如下图<br> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164506.png" alt="TIM截图20180626164506"></p>
 <h3 id="源测试"><a href="#源测试" class="headerlink" title="源测试"></a>源测试</h3><p> 测试一下某个源是速度是否够快，<code>nrm test 源别名</code></p>
 <p> <code>nrm test cnpm</code></p>
-<p> 结果如下图<br> <img src="https://img1.meaoo.cn/2018/06/20180626164716.png" alt="TIM截图20180626164716"></p>
+<p> 结果如下图<br> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164716.png" alt="TIM截图20180626164716"></p>
 <h3 id="删除源-1"><a href="#删除源-1" class="headerlink" title="删除源"></a>删除源</h3><p> 删除nrm内的某个源，<code>nrl del 源别名</code></p>
 <p> <code>nrm del meaoo</code></p>
-<p> 运行成功，如下图<br> <img src="https://img1.meaoo.cn/2018/06/20180626164830.png" alt="TIM截图20180626164830"></p>
+<p> 运行成功，如下图<br> <img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/06/20180626164830.png" alt="TIM截图20180626164830"></p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
 
 

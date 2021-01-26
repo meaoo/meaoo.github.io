@@ -35,16 +35,16 @@
 <meta property="og:site_name" content="喵先生">
 <meta property="og:description" content="自从使用OpenCart开始，就遇到一个问题，邮件无法发送。与是就选择了回避，但是，避不可避，就解决吧。  本地调试Error: EHLO not accepted from server!当使用到发送邮件的时候，会出现这么一个错误。与是根据错误提示路径，找到如下地址/opencart/system/library/mail/smtp.php,发现是substr的问题导致的。于是，输出$repl">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/05/08/53816299.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/05/08/40488174.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/05/08/74193999.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/05/08/30254734.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/05/08/63986707.jpg">
-<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/53816299.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/40488174.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/74193999.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/30254734.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/63986707.jpg">
+<meta property="og:updated_time" content="2021-01-26T03:20:45.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenCart使用SMTP发送邮件配置">
 <meta name="twitter:description" content="自从使用OpenCart开始，就遇到一个问题，邮件无法发送。与是就选择了回避，但是，避不可避，就解决吧。  本地调试Error: EHLO not accepted from server!当使用到发送邮件的时候，会出现这么一个错误。与是根据错误提示路径，找到如下地址/opencart/system/library/mail/smtp.php,发现是substr的问题导致的。于是，输出$repl">
-<meta name="twitter:image" content="https://img1.meaoo.cn/2018/05/08/53816299.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/53816299.jpg">
 
 <link rel="canonical" href="https://www.meaoo.cn/2018/05/08/20180508001.html">
 
@@ -273,18 +273,18 @@
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ol>
 <li>进入管理平台，进行设置，位置如下<code>系统设置--&gt;网店设置--&gt;选择要设置的网店--&gt;商店--&gt;E-Mail</code>参数，需要与<code>邮件</code>内配置的邮件相同，如下图</li>
 </ol>
-<p><img src="https://img1.meaoo.cn/2018/05/08/53816299.jpg" alt="商店设置"><br><img src="https://img1.meaoo.cn/2018/05/08/40488174.jpg" alt="邮件设置"></p>
+<p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/53816299.jpg" alt="商店设置"><br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/40488174.jpg" alt="邮件设置"></p>
 <ol start="2">
 <li>然后设置<code>邮件标签内容</code></li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">选择邮件引擎：`smtp`</span><br><span class="line"></span><br><span class="line">SMTP主机：`smtp.163.com`（我用的是163邮箱）</span><br><span class="line"></span><br><span class="line">SMTP用户名：`test@163.com`（即你的邮箱）</span><br><span class="line"></span><br><span class="line">SMTP密码：`test`</span><br><span class="line"></span><br><span class="line">SMTP端口：`25`</span><br><span class="line"></span><br><span class="line">SMTP超时：`5`</span><br></pre></td></tr></table></figure>
 
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>测试结果成功，如下图<br><img src="https://img1.meaoo.cn/2018/05/08/74193999.jpg" alt="邮件发送"></p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>测试结果成功，如下图<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/74193999.jpg" alt="邮件发送"></p>
 <h1 id="发布线上"><a href="#发布线上" class="headerlink" title="发布线上"></a>发布线上</h1><p>发布线上一定注意，如果你是阿里云之类的，请使用ssl请求地址，也就是发送邮件的端口需要使用465，因为大部分云服务器厂商为了安全，将25端口关闭。但是使用465端口，需要使用ssl请求，所以需要在邮件发送地址前，加上<code>ssl://</code>配置如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">选择邮件引擎：`smtp`</span><br><span class="line"></span><br><span class="line">SMTP主机：`ssl://smtp.163.com`（我用的是163邮箱）</span><br><span class="line"></span><br><span class="line">SMTP用户名：`test@163.com`（即你的邮箱）</span><br><span class="line"></span><br><span class="line">SMTP密码：`test`</span><br><span class="line"></span><br><span class="line">SMTP端口：`465`</span><br><span class="line"></span><br><span class="line">SMTP超时：`5`</span><br></pre></td></tr></table></figure>
 
-<p>一定要在<code>SMTP主机</code>地址前面，加上<code>ssl:</code>，如下图<br><img src="https://img1.meaoo.cn/2018/05/08/30254734.jpg" alt="服务器配置"></p>
-<h2 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h2><p>结果如下图，邮件发送成功<br><img src="https://img1.meaoo.cn/2018/05/08/63986707.jpg" alt="服务器发送成功"></p>
+<p>一定要在<code>SMTP主机</code>地址前面，加上<code>ssl:</code>，如下图<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/30254734.jpg" alt="服务器配置"></p>
+<h2 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h2><p>结果如下图，邮件发送成功<br><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/05/08/63986707.jpg" alt="服务器发送成功"></p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
 
 

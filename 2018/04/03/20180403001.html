@@ -35,17 +35,17 @@
 <meta property="og:site_name" content="喵先生">
 <meta property="og:description" content="DataGrip是由JetBarins出品，当然DataGrip也顺理成章成为了一个精品，这款软件是数据库管理与开发，各种智能提醒，各种数据库连接，让你更快速，更高效的完成任务。好了，不说废话。目前阶段，我也是初学者，对于这款软件的强大，也只是摸索了点皮毛。下面介绍一下，最基本的，数据导出与导入。  数据导入DataGrip有多种数据导出模式，常用的有两种：  Dump Data to File">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/35024503.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/14763241.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/4512311.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/94891105.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/68499406.jpg">
-<meta property="og:image" content="https://img1.meaoo.cn/2018/04/03/86483153.jpg">
-<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/35024503.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/14763241.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/4512311.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/94891105.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/68499406.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/86483153.jpg">
+<meta property="og:updated_time" content="2021-01-26T03:20:45.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DataGrip 数据导出与导入">
 <meta name="twitter:description" content="DataGrip是由JetBarins出品，当然DataGrip也顺理成章成为了一个精品，这款软件是数据库管理与开发，各种智能提醒，各种数据库连接，让你更快速，更高效的完成任务。好了，不说废话。目前阶段，我也是初学者，对于这款软件的强大，也只是摸索了点皮毛。下面介绍一下，最基本的，数据导出与导入。  数据导入DataGrip有多种数据导出模式，常用的有两种：  Dump Data to File">
-<meta name="twitter:image" content="https://img1.meaoo.cn/2018/04/03/35024503.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/35024503.jpg">
 
 <link rel="canonical" href="https://www.meaoo.cn/2018/04/03/20180403001.html">
 
@@ -271,9 +271,9 @@
 
 </li>
 </ol>
-<p><img src="https://img1.meaoo.cn/2018/04/03/35024503.jpg" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/35024503.jpg" alt="图片"></p>
 <p><code>Dump Data to File</code>模式，该模式是导出各种单个文件，比如，SQL，HTML，TSV，CSV等文件，当然这是我们在对某个表进行操作的时候使用的。</p>
-<p><img src="https://img1.meaoo.cn/2018/04/03/14763241.jpg" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/14763241.jpg" alt="图片"></p>
 <p><code>Dump with &#39;mysqldump&#39;</code>模式，该模式是使用MySql的<code>mysqldump</code>组件进行数据导出，该方法导出的SQL文件，可以选择，是否包含数据或者是只导出数据结构。该模式是我们常用的数据库导出。下面对该模式进行说明。</p>
 <ol>
 <li><code>Path to mysqldump</code>选择你的<code>mysqldump</code>在本地磁盘的位置</li>
@@ -286,11 +286,11 @@
 <h2 id="导出数据结构及数据"><a href="#导出数据结构及数据" class="headerlink" title="导出数据结构及数据"></a>导出数据结构及数据</h2><blockquote>
 <p>如果第一次导出，应该会出现<code>Can&#39;t create/write to file</code>这个错误，这时候，需要在<code>Out path</code>后面，手动添加上，需要导出的文件，例如下图，<code>test.sql</code>即可</p>
 </blockquote>
-<p><img src="https://img1.meaoo.cn/2018/04/03/4512311.jpg" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/4512311.jpg" alt="图片"></p>
 <h2 id="导出结构"><a href="#导出结构" class="headerlink" title="导出结构"></a>导出结构</h2><blockquote>
 <p>导出结构与上面基本一致，只是在下面命令行的表名前面，添加一个<code>-d</code>记住，后面要添加一个空格，如下图</p>
 </blockquote>
-<p><img src="https://img1.meaoo.cn/2018/04/03/94891105.jpg" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/94891105.jpg" alt="图片"></p>
 <h1 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h1><p>导入数据刚开始，是一直困惑我的问题，因为<code>Import Data from File</code>这个功能貌似不是那么回事，后来发现，一个很神奇的东西。<br>操作步骤如下</p>
 <ol>
 <li>将sql文件，拖拽到DataGrip中</li>
@@ -299,8 +299,8 @@
 <li>选择需要操作的库</li>
 <li>完成</li>
 </ol>
-<h2 id="这些说着很复杂，其实操作起来，很方便。如下图所示"><a href="#这些说着很复杂，其实操作起来，很方便。如下图所示" class="headerlink" title="这些说着很复杂，其实操作起来，很方便。如下图所示"></a>这些说着很复杂，其实操作起来，很方便。如下图所示</h2><p><img src="https://img1.meaoo.cn/2018/04/03/68499406.jpg" alt></p>
-<h2 id="然后选择需要操作的库"><a href="#然后选择需要操作的库" class="headerlink" title="然后选择需要操作的库"></a>然后选择需要操作的库</h2><p><img src="https://img1.meaoo.cn/2018/04/03/86483153.jpg" alt></p>
+<h2 id="这些说着很复杂，其实操作起来，很方便。如下图所示"><a href="#这些说着很复杂，其实操作起来，很方便。如下图所示" class="headerlink" title="这些说着很复杂，其实操作起来，很方便。如下图所示"></a>这些说着很复杂，其实操作起来，很方便。如下图所示</h2><p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/68499406.jpg" alt></p>
+<h2 id="然后选择需要操作的库"><a href="#然后选择需要操作的库" class="headerlink" title="然后选择需要操作的库"></a>然后选择需要操作的库</h2><p><img src="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/04/03/86483153.jpg" alt></p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
 
 
