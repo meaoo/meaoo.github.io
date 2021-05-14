@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/08/17/8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/08/17/9.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/meaoo/blog_img/master/2018/08/17/10.png">
-<meta property="og:updated_time" content="2021-01-26T03:20:45.068Z">
+<meta property="og:updated_time" content="2021-05-14T08:53:11.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kanboard修改富文本编辑器">
 <meta name="twitter:description" content="近期有这样的一个需求，需要把kanboard进行改进，需要在添加任务的时候，可以添加图片。由于kanboard使用的是markddown进行文本编辑，那么问题来了，怎样进行markddown的图片上传呢，解决方案是有的，比如简书，已经实现了markddown图片粘贴上传。但是呢，我是个比较懒的人，那么还有一个解决方案，使用富文本编辑器。下文介绍如何将kanboard中的markddown编辑器修">
@@ -369,7 +369,7 @@
 
 <h2 id="全都乱了"><a href="#全都乱了" class="headerlink" title="全都乱了"></a>全都乱了</h2><p>等上面的事情都好了之后，你的心情的美美的，当你打开评论的时候会发现，全乱了，评论的面板也变成了富文本编辑器，所有的编辑地方都变成了富文本编辑器。这个时候我们需要将之前改的<code>textEditor</code>方法进行一个封装，因为<code>renderDescriptionField</code>方法只是任务创建和修改的方法，不会影响其他的，将<code>renderDescriptionField</code>中的方法改成我们自己封装的方法即可。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面的解决方法只是临时的，需要改进的地方是，图片上传使用的是base64，会对数据库造成大批量的字节写入，拖垮数据库，需要将图片上传改用cdn存储<br>已经有了解决方法，点击链接跳转<a href="https://www.meaoo.cn/2018/09/03/20180903001.html">解决Kanboard修改富文本编辑器遗留问题</a></p>
-<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog<span class="meta">@meaoo</span>.cn</span><br></pre></td></tr></table></figure>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail：blog.meaoo<span class="meta">@icloud</span>.com</span><br></pre></td></tr></table></figure>
 
 
     </div>

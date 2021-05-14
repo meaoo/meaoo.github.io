@@ -35,7 +35,7 @@
 <meta property="og:site_name" content="喵先生">
 <meta property="og:description" content="很多时候，在下载的地方，大家会选择直接链接方式进行下载。但是有一些浏览器，或者有一些文件，浏览器是默认直接打开的，那么这个结果不是开发者需要的一个结果，这个时候就需要进行一个下载方法。 下面是具体方法。当然方法很多，这不是唯一的。开发这件事情，就是需要灵活运用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-30T04:51:40.000Z">
+<meta property="og:updated_time" content="2021-05-14T08:53:11.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP下载文件">
 <meta name="twitter:description" content="很多时候，在下载的地方，大家会选择直接链接方式进行下载。但是有一些浏览器，或者有一些文件，浏览器是默认直接打开的，那么这个结果不是开发者需要的一个结果，这个时候就需要进行一个下载方法。 下面是具体方法。当然方法很多，这不是唯一的。开发这件事情，就是需要灵活运用。">
@@ -259,7 +259,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public function download()&#123;</span><br><span class="line">        $filedir = &apos;upload/abc.jpg&apos;;</span><br><span class="line">        $filename =substr($filedir,strrpos($filedir,&apos;/&apos;)+1);</span><br><span class="line"></span><br><span class="line">        $file =  fopen($filedir ,&quot;r&quot;); // 打开文件</span><br><span class="line">        // 输入文件标签</span><br><span class="line">        Header(&quot;Content-type: application/octet-stream&quot;);</span><br><span class="line">        Header(&quot;Accept-Ranges: bytes&quot;);</span><br><span class="line">        Header(&quot;Accept-Length: &quot;.filesize($filedir));</span><br><span class="line">        Header(&quot;Content-Disposition: attachment; filename=&quot; . $filename);</span><br><span class="line">        // 输出文件内容</span><br><span class="line">        echo fread($file,filesize($filedir));</span><br><span class="line">        fclose($file);</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>如果对上面的内容有任何疑问或者问题，无法得到解决，请与我联系</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//发送邮件或者添加QQ，请说明什么问题，以及文章链接，这样方便对您的问题进行更详尽的回答</span><br><span class="line">E-mail：blog@meaoo.cn</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//发送邮件或者添加QQ，请说明什么问题，以及文章链接，这样方便对您的问题进行更详尽的回答</span><br><span class="line">E-mail：blog.meaoo@icloud.com</span><br></pre></td></tr></table></figure>
 
 
     </div>
